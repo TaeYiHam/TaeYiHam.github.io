@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<rect width="900" height="520" fill="#eef1ec"/><text x="60" y="72" font-family="Arial" font-size="22" fill="#315f55">COLLEGE SCORECARD · CURRENT CAPSTONE SNAPSHOT</text>
+<text x="60" y="175" font-family="Arial" font-size="76" font-weight="700" fill="#141514">6,273</text><text x="60" y="215" font-family="Arial" font-size="22" fill="#666861">institutions</text>
+<text x="350" y="175" font-family="Arial" font-size="76" font-weight="700" fill="#141514">3,308</text><text x="350" y="215" font-family="Arial" font-size="22" fill="#666861">raw variables</text>
+<text x="670" y="175" font-family="Arial" font-size="76" font-weight="700" fill="#141514">14</text><text x="670" y="215" font-family="Arial" font-size="22" fill="#666861">selected variables</text>
+<line x1="60" y1="275" x2="840" y2="275" stroke="#c9cdc5"/>
+<text x="60" y="330" font-family="Arial" font-size="25" fill="#141514">Completion</text><text x="250" y="330" font-family="Arial" font-size="25" fill="#141514">Cost</text><text x="355" y="330" font-family="Arial" font-size="25" fill="#141514">Pell</text><text x="445" y="330" font-family="Arial" font-size="25" fill="#141514">Selectivity</text><text x="610" y="330" font-family="Arial" font-size="25" fill="#141514">Earnings</text>
+<text x="60" y="410" font-family="Arial" font-size="20" fill="#666861">EDA · Missing-value analysis · Correlation · Preliminary linear regression</text>
+<text x="60" y="460" font-family="Arial" font-size="18" fill="#315f55">ONGOING · FALL 2026 · CURRENT REPOSITORY IMPLEMENTATION: R</text></svg>

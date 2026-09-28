@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<rect width="900" height="520" fill="#f0eee8"/>
+<text x="55" y="58" font-family="Arial" font-size="21" fill="#315f55">SPOTIFY MUSIC GRAPH · ORIGINAL PROJECT EVIDENCE</text>
+<text x="55" y="98" font-family="Arial" font-size="16" fill="#666861">Seven Cypher tasks · each run 10 times in the original presentation</text>
+<g font-family="Arial" font-size="17" fill="#141514">
+<text x="55" y="155">01  Highly popular tracks</text><text x="710" y="155">14.5</text>
+<text x="55" y="205">02  “Love” or “Dream” titles</text><text x="710" y="205">39.1</text>
+<text x="55" y="255">03  Tracks by Harry Styles</text><text x="710" y="255">1.9</text>
+<text x="55" y="305">04  Upbeat &amp; happy tracks</text><text x="710" y="305">1.9</text>
+<text x="55" y="355">05  Update artist name</text><text x="710" y="355">16.9</text>
+<text x="55" y="405">06  Avg. popularity by genre</text><text x="710" y="405">24.2</text>
+<text x="55" y="455">07  Top-genre track counts</text><text x="710" y="455">24.2</text>
+</g>
+<text x="770" y="125" font-family="Arial" font-size="13" fill="#666861">AVG RUN TIME</text>
+<g stroke="#c9cdc5"><line x1="55" y1="170" x2="835" y2="170"/><line x1="55" y1="220" x2="835" y2="220"/><line x1="55" y1="270" x2="835" y2="270"/><line x1="55" y1="320" x2="835" y2="320"/><line x1="55" y1="370" x2="835" y2="370"/><line x1="55" y1="420" x2="835" y2="420"/></g>
+</svg>
