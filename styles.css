@@ -11,3 +11,24 @@ footer{padding:65px 0 85px;border-top:1px solid var(--line)}.foot{display:flex;j
 @media(max-width:800px){.wrap{width:min(100% - 32px,1200px)}.links{display:none}.hero{grid-template-columns:1fr;padding:58px 0 76px;gap:42px}.hero h1{font-size:clamp(58px,18vw,76px);line-height:.86}.intro{font-size:17px}.actions{flex-wrap:wrap}.portrait{display:block;width:100%;height:min(112vw,460px);justify-self:auto}.section{padding:78px 0}.section h2{font-size:40px}.section-head,.about-grid,.meta-grid,.casegrid{grid-template-columns:1fr;gap:30px}.project.one,.project.two,.project.three{grid-column:span 12;display:block}.visual,.project.three .visual{height:280px}.journey-row{grid-template-columns:70px 1fr}.journey-row span{display:none}.foot{display:block}.foot>div:last-child{margin-top:28px;line-height:2}.foot h2{font-size:42px}.modal{padding:12px}.sheet{padding:22px;min-height:auto}.sheet h2{font-size:38px}.gallery figure{padding:10px}}
 
 .project-proof{font-size:12px;line-height:1.5;color:var(--ink);margin-top:14px}.evidence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:34px 0 10px}.evidence>div{border-top:1px solid var(--line);padding-top:15px}.evidence strong{display:block;font-size:27px;letter-spacing:-.05em}.evidence span{display:block;margin-top:5px;font-size:12px;line-height:1.4;color:var(--muted)}@media(max-width:800px){.evidence{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Evidence stays legible; project cards retain their existing layout. */
+.visual img{object-fit:contain}
+.case-link{font:inherit;font-size:12px;font-weight:650;color:var(--ink);background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 3px;cursor:pointer;text-align:left}
+.journey-row{width:100%;font:inherit;color:inherit;background:none;border:0;border-top:1px solid var(--line);text-align:left;align-items:center}
+.case-takeaway{border-top:1px solid var(--line);padding:24px 0 30px;max-width:850px}
+.case-takeaway h3{font-size:19px;letter-spacing:-.025em;margin:0 0 10px}
+.case-takeaway h3:not(:first-child){margin-top:25px}
+.case-takeaway p,.case-note{color:var(--muted);font-size:15px;line-height:1.75;margin:0}
+.case-note{margin-top:24px}.case-note+.gh{margin-top:14px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+.sheet:focus{outline:none}.close:focus-visible{outline:3px solid var(--accent)}
+.modal[hidden]{display:none}
+section[id],footer[id]{scroll-margin-top:95px}
+@media(max-width:800px){
+.nav{height:auto;min-height:74px;flex-wrap:wrap;gap:15px;padding:18px 0}
+.links{display:flex;flex-wrap:wrap;gap:16px;font-size:12px}
+.journey-row{gap:18px}.case-takeaway{padding-top:20px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.project,.gh{transition:none}.project:hover{transform:none}}
