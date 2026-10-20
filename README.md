@@ -45,4 +45,3 @@ blob `a30191e01a948729dafdc4d7b9f3e61e53d1be8d`.
 Region membership follows that repository's `app.R`. Values are 2023 academic
 project estimates; the preview does not claim current prices or market forecasts.
 Pearson correlations are recalculated over the selected complete observations.
-
