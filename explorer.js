@@ -16,6 +16,7 @@ const summary=document.getElementById('explorer-summary');
 const chart=document.getElementById('scatter');
 const svgNS='http://www.w3.org/2000/svg';
 function svgNode(tag,attrs={},text){const n=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
+function axisMaximum(value){const magnitude=10**Math.floor(Math.log10(value||1));return Math.ceil(value/magnitude)*magnitude;}
 function format(n){return n.toLocaleString('en-US',{maximumFractionDigits:3});}
 function correlation(rows,x,y){
  if(rows.length<3)return null;
@@ -38,7 +39,7 @@ async function startExplorer(){
    summary.textContent=`${rows.length} countries · 2023 · Pearson r: ${r===null?'not reported for fewer than 3 countries or constant values':r.toFixed(2)} · Mean spending: ${mean===null?'not available':format(mean)}. Unweighted country sample; descriptive associations.`;
    const svg=svgNode('svg',{viewBox:'0 0 760 460',role:'group','aria-labelledby':'plot-title plot-desc'});
    svg.append(svgNode('title',{id:'plot-title'},`${variableLabels[y]} versus ${variableLabels[x]}`),svgNode('desc',{id:'plot-desc'},`${rows.length} countries in ${regionSelect.value==='all'?'all regions':regionSelect.value}. Full values are available in the table below.`));
-   const maxX=Math.max(...rows.map(r=>r[x]),1)*1.08,maxY=Math.max(...rows.map(r=>r[y]),1)*1.08;
+   const maxX=axisMaximum(Math.max(...rows.map(r=>r[x]),0.001)),maxY=axisMaximum(Math.max(...rows.map(r=>r[y]),0.001));
    for(let i=0;i<=4;i++){
     const px=90+i*620/4,py=385-i*335/4;
     svg.append(svgNode('line',{x1:90,y1:py,x2:710,y2:py,stroke:'#deddd4'}),svgNode('text',{x:78,y:py+4,'text-anchor':'end'},format(maxY*i/4)),svgNode('text',{x:px,y:408,'text-anchor':'middle'},format(maxX*i/4)));
