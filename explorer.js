@@ -34,8 +34,9 @@ async function startExplorer(){
    const x=xSelect.value,y=ySelect.value;
    const rows=data.filter(r=>(regionSelect.value==='all'||r.region===regionSelect.value)&&Number.isFinite(r[x])&&Number.isFinite(r[y]));
    const r=correlation(rows,x,y);
-   summary.textContent=`${rows.length} countries · 2023 · Pearson r: ${r===null?'not reported for fewer than 3 countries or constant values':r.toFixed(2)}. Region averages and correlations are descriptive, not population-weighted.`;
-   const svg=svgNode('svg',{viewBox:'0 0 760 460',role:'img','aria-labelledby':'plot-title plot-desc'});
+   const mean=rows.length?rows.reduce((total,row)=>total+row[y],0)/rows.length:null;
+   summary.textContent=`${rows.length} countries · 2023 · Pearson r: ${r===null?'not reported for fewer than 3 countries or constant values':r.toFixed(2)} · Mean spending: ${mean===null?'not available':format(mean)}. Unweighted country sample; descriptive associations.`;
+   const svg=svgNode('svg',{viewBox:'0 0 760 460',role:'group','aria-labelledby':'plot-title plot-desc'});
    svg.append(svgNode('title',{id:'plot-title'},`${variableLabels[y]} versus ${variableLabels[x]}`),svgNode('desc',{id:'plot-desc'},`${rows.length} countries in ${regionSelect.value==='all'?'all regions':regionSelect.value}. Full values are available in the table below.`));
    const maxX=Math.max(...rows.map(r=>r[x]),1)*1.08,maxY=Math.max(...rows.map(r=>r[y]),1)*1.08;
    for(let i=0;i<=4;i++){
