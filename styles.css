@@ -1306,7 +1306,9 @@ footer {
 }
 @media(max-width:760px) {
   .proof-strip {
-    margin-top:26px
+    margin-top:26px;
+    width:100%;
+    max-width:none
   }
   .proof-strip li {
     padding-right:10px
