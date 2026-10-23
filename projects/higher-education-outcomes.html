@@ -11,7 +11,7 @@
 <meta property="og:title" content="Higher Education Outcomes Analysis — Tae Yi Ham">
 <meta property="og:description" content="An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/higher-education-outcomes.html">
-<link rel="stylesheet" href="../styles.css?v=20261023-capstone">
+<link rel="stylesheet" href="../styles.css?v=20261023-evidence">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -46,7 +46,8 @@
 <p class="summary">An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.</p>
 <div class="tags">R · SQL (SQLite) · Excel · Python</div>
 <div class="resource-strip">
-<a class="btn dark" href="#validation">See SQL & Excel workflow ↓</a>
+<a class="btn dark" href="#validation">See SQL validation ↓</a>
+<a class="btn" href="#report">Inspect Excel reporting ↓</a>
 <a class="btn" href="#findings">See model results ↓</a>
 </div>
 </header>
@@ -54,7 +55,8 @@
 <summary>On this page</summary>
 <nav aria-label="Page sections">
 <a href="#contribution">My contribution</a>
-<a href="#validation">SQL validation & Excel reporting</a>
+<a href="#validation">SQL validation & sample checks</a>
+<a href="#report">Excel reporting</a>
 <a href="#findings">Findings and evidence</a>
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
@@ -89,11 +91,11 @@
 <p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Extended the project with a Python-to-SQLite audit and an Excel report for sample-count checks, institution-type summaries, and missingness review.</p>
 </section>
 <section class="case-section" id="validation" aria-labelledby="validation-title">
-<h2 id="validation-title">SQL validation & Excel reporting</h2>
-<p>The extension audits the same 14 selected fields used in the R analysis. A Python importer converts finite numeric values to numbers, maps suppressed or non-numeric entries to NULL, and derives institution-type labels. SQLite checks identifiers, defines complete-case membership for four analyses, and exports counts, row-level membership flags, missingness, and institution-type summaries.</p>
+<h2 id="validation-title">SQL validation & sample checks</h2>
+<p>The extension audits 14 selected fields from 6,273 College Scorecard records. Python normalizes suppressed and non-numeric values, loads an in-memory SQLite database, and exports identifiers, sample-membership flags, missingness, and institution-type summaries.</p>
 <div class="table-scroll" tabindex="0" aria-label="SQL sample-count comparison">
 <table class="evidence-table">
-<caption>SQLite output compared with previously reported R counts</caption>
+<caption>Four analysis samples · SQL output and reported R counts</caption>
 <thead>
 <tr>
 <th scope="col">Analysis sample</th>
@@ -125,10 +127,45 @@
 </tbody>
 </table>
 </div>
-<p>The saved audit contains 6,273 records with unique, non-missing UNITIDs. All four SQL counts agree with the reported R references. Independent R execution and exact UNITID-membership reconciliation remain open; count agreement alone does not establish that the included records or numerical results are identical.</p>
-<h3>What the Excel report contains</h3>
-<p>A Python-generated workbook organizes four worksheets: Validation, Definitions, Summary, and Missingness. Difference and IF formulas compare SQL counts with reported R counts. Institution-type summaries include the available-observation counts beside the means.</p>
-<p class="case-note">To update this saved report, rerun the audit and regenerate the workbook from its exported results.</p>
+<p>The saved audit has 6,273 unique, non-missing UNITIDs. All four SQL counts agree with the reported R counts. The project log also records exact R-to-SQL UNITID-set matches for all four samples, with zero IDs unique to either source.</p>
+<p class="case-note">Evidence scope: the exact ID matches are recorded results from my local comparison. The repository includes the comparison script, while the four R ID exports and generated reconciliation CSV have not yet been committed. Sample membership does not establish equality of model coefficients or predictive performance.</p>
+<h3>Repeatable checks</h3>
+<p>The audit derives QA totals from the data rather than hard-coding them. Two synthetic-data tests cover numeric conversion and basic sample selection. A separate comparison script validates identifiers and inclusion flags, writes a reconciliation CSV, and returns a failure if any R and SQL sample differs.</p>
+</section>
+<section class="case-section" id="report" aria-labelledby="report-title">
+<h2 id="report-title">Excel reporting</h2>
+<p>I used Python and openpyxl to generate a workbook from the SQL audit exports. The committed file contains four worksheets, eight comparison formulas, and one embedded institution-type bar chart.</p>
+<div class="table-scroll" tabindex="0" aria-label="Excel report structure">
+<table class="evidence-table">
+<caption>What is inside the Excel report</caption>
+<thead>
+<tr>
+<th scope="col">Worksheet</th>
+<th scope="col">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Validation</th>
+<td>Four count differences and four IF-based MATCH/REVIEW checks, plus identifier QA totals.</td>
+</tr>
+<tr>
+<th scope="row">Definitions</th>
+<td>Variable definitions, missing-value rules, and fields required by each sample.</td>
+</tr>
+<tr>
+<th scope="row">Summary</th>
+<td>Institution-type counts, available-observation counts, outcome means, and a bar chart.</td>
+</tr>
+<tr>
+<th scope="row">Missingness</th>
+<td>Missing counts and percentages for the selected numeric fields and institution type.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The workbook structure, formula expressions, chart object, and stored QA totals were inspected in the committed file. This confirms what the file contains; a fresh desktop Excel recalculation and full visual review remain separate checks.</p>
+<p class="case-note">The report is a saved snapshot. To refresh it, rerun the SQL audit and regenerate the workbook. Its R reference counts and verification note require review after a source change; workbook generation does not run the R-to-SQL ID comparison.</p>
 </section>
 <section class="case-section" id="findings" aria-labelledby="findings-title">
 <h2 id="findings-title">Findings and evidence</h2>
@@ -197,8 +234,8 @@
 </section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
 <h2 id="scope-title">Interpretation and next steps</h2>
-<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization. The next validation step is to independently export R sample-membership flags and reconcile them with the SQL output, then review the workbook in desktop Excel. Random Forest comparison on a common sample and evaluation procedure remains planned.</p>
-<p class="case-note">Statistical results are documented in Weekly Updates #5 and #6. The SQL and Excel extension was reviewed on October 23, 2026. The project and source repository remain private; selected methods and aggregate results are summarized here.</p>
+<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization. R-to-SQL membership matches have been recorded; the remaining reproducibility step is to preserve the independent R ID exports and generated comparison result. A full desktop Excel review and a Random Forest comparison on a common sample and evaluation procedure remain planned.</p>
+<p class="case-note">Statistical results are documented in Weekly Updates #5 and #6. Validation documentation and the committed Excel report were reviewed on October 23, 2026. The source repository remains private; selected methods and aggregate results are summarized here.</p>
 </section>
 <details class="case-section workflow-details" id="workflow">
 <summary>
@@ -216,7 +253,7 @@
 </li>
 <li>
 <strong>Report in Excel</strong>
-<span>Compare SQL counts with reported R references using formulas, and organize definitions, summaries, and missingness.</span>
+<span>Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, summaries, and an institution-type chart.</span>
 </li>
 </ol>
 </details>
@@ -224,7 +261,7 @@
 <h2>Why this work matters</h2>
 <div class="application-note">
 <span class="kicker">Business &amp; data analytics</span>
-<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The SQL audit and Excel count checks demonstrate a reporting workflow relevant to business analytics; exact R-to-SQL record reconciliation is the next validation step.</p>
+<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite audit and Excel report show how to turn source data into repeatable QA checks and readable summaries—tasks relevant to business, pricing, and operations analytics.</p>
 </div>
 </section>
 <section class="case-section" id="materials">
@@ -237,7 +274,8 @@
 <nav class="contents" aria-label="On this page">
 <div class="kicker">On this page</div>
 <a href="#contribution">My contribution</a>
-<a href="#validation">SQL validation & Excel reporting</a>
+<a href="#validation">SQL validation & sample checks</a>
+<a href="#report">Excel reporting</a>
 <a href="#findings">Findings and evidence</a>
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
@@ -271,7 +309,7 @@
 </div>
 </footer>
 </div>
-<script src="../script.js?v=20261023-capstone" defer>
+<script src="../script.js?v=20261023-evidence" defer>
 </script>
 </body>
 </html>
