@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title description">
+  <title id="title">GDP per capita versus beauty spending as a share of household income, 50 countries, 2023</title>
+  <desc id="description">Countries with lower GDP per capita generally spend a larger share of household income on beauty. Point size represents female labor-force participation.</desc>
+  <rect width="900" height="560" fill="#fcfbf7"/>
+  <g font-family="Inter, Arial, Helvetica, sans-serif" fill="#19201c">
+    <text x="72" y="38" font-size="12" font-weight="700" letter-spacing="2" fill="#315f55">GLOBAL BEAUTY SPENDING · 50 COUNTRIES · 2023</text>
+    <text x="72" y="74" font-size="26" font-weight="700" letter-spacing="-.5">Richer markets spend a smaller share of income.</text>
+    <g stroke="#d4d8ce">
+    <path d="M72 490H860"/><path d="M72 414H860"/><path d="M72 338H860"/><path d="M72 262H860"/><path d="M72 186H860"/><path d="M72 110H860"/>
+    </g>
+    <g font-size="13" fill="#535e56">
+    <text x="60" y="494" text-anchor="end">1.0%</text><text x="60" y="418" text-anchor="end">1.5%</text><text x="60" y="342" text-anchor="end">2.0%</text><text x="60" y="266" text-anchor="end">2.5%</text><text x="60" y="190" text-anchor="end">3.0%</text><text x="60" y="114" text-anchor="end">3.5%</text>
+    <text x="72" y="514" text-anchor="middle">$0</text><text x="269" y="514" text-anchor="middle">$25k</text><text x="466" y="514" text-anchor="middle">$50k</text><text x="663" y="514" text-anchor="middle">$75k</text><text x="860" y="514" text-anchor="middle">$100k</text>
+    <text x="466" y="544" text-anchor="middle">GDP per capita (USD)</text>
+    <text transform="translate(18 300) rotate(-90)" text-anchor="middle">Beauty spending, % of household income</text>
+    </g>
+    <circle cx="104.4" cy="262.0" r="11.7" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Vietnam: 2.5% of income, GDP per capita 4,110, female LFP 63.2%</title></circle>
+    <circle cx="566.1" cy="414.0" r="11.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Australia: 1.5% of income, GDP per capita 62,699, female LFP 61.4%</title></circle>
+    <circle cx="651.4" cy="459.6" r="11.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Denmark: 1.2% of income, GDP per capita 73,524, female LFP 61.3%</title></circle>
+    <circle cx="538.1" cy="383.6" r="11.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Canada: 1.7% of income, GDP per capita 59,146, female LFP 61.1%</title></circle>
+    <circle cx="809.3" cy="459.6" r="11.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Switzerland: 1.2% of income, GDP per capita 93,571, female LFP 61%</title></circle>
+    <circle cx="567.9" cy="444.4" r="11.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Finland: 1.3% of income, GDP per capita 62,931, female LFP 60.9%</title></circle>
+    <circle cx="488.6" cy="398.8" r="11.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>New Zealand: 1.6% of income, GDP per capita 52,870, female LFP 60.7%</title></circle>
+    <circle cx="172.2" cy="322.8" r="11.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>China: 2.1% of income, GDP per capita 12,720, female LFP 60.5%</title></circle>
+    <circle cx="702.3" cy="429.2" r="11.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Singapore: 1.4% of income, GDP per capita 79,981, female LFP 60.5%</title></circle>
+    <circle cx="567.7" cy="459.6" r="11.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Sweden: 1.2% of income, GDP per capita 62,910, female LFP 60.3%</title></circle>
+    <circle cx="775.9" cy="474.8" r="11.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Norway: 1.1% of income, GDP per capita 89,325, female LFP 60.1%</title></circle>
+    <circle cx="131.9" cy="231.6" r="11.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Thailand: 2.7% of income, GDP per capita 7,605, female LFP 60%</title></circle>
+    <circle cx="478.9" cy="414.0" r="11.1" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Israel: 1.5% of income, GDP per capita 51,634, female LFP 59.3%</title></circle>
+    <circle cx="530.2" cy="444.4" r="11.0" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Netherlands: 1.3% of income, GDP per capita 58,153, female LFP 58.7%</title></circle>
+    <circle cx="625.6" cy="353.2" r="10.7" fill="#19201c" fill-opacity="0.9" stroke="#fcfbf7" stroke-width="1"><title>United States: 1.9% of income, GDP per capita 70,250, female LFP 56.8%</title></circle>
+    <circle cx="437.7" cy="429.2" r="10.6" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>United Kingdom: 1.4% of income, GDP per capita 46,410, female LFP 56.5%</title></circle>
+    <circle cx="490.9" cy="368.4" r="10.6" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Germany: 1.8% of income, GDP per capita 53,157, female LFP 56.3%</title></circle>
+    <circle cx="163.6" cy="307.6" r="10.5" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Malaysia: 2.2% of income, GDP per capita 11,627, female LFP 55.6%</title></circle>
+    <circle cx="177.6" cy="338.0" r="10.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Russia: 2% of income, GDP per capita 13,401, female LFP 54.8%</title></circle>
+    <circle cx="349.0" cy="277.2" r="10.3" fill="#19201c" fill-opacity="0.9" stroke="#fcfbf7" stroke-width="1"><title>South Korea: 2.4% of income, GDP per capita 35,147, female LFP 54.2%</title></circle>
+    <circle cx="109.7" cy="216.4" r="10.1" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Indonesia: 2.8% of income, GDP per capita 4,783, female LFP 53.4%</title></circle>
+    <circle cx="149.1" cy="201.2" r="10.0" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Brazil: 2.9% of income, GDP per capita 9,787, female LFP 52.4%</title></circle>
+    <circle cx="345.1" cy="398.8" r="10.0" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Spain: 1.6% of income, GDP per capita 34,659, female LFP 52.2%</title></circle>
+    <circle cx="240.4" cy="353.2" r="9.9" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Poland: 1.9% of income, GDP per capita 21,374, female LFP 52.1%</title></circle>
+    <circle cx="449.0" cy="398.8" r="9.9" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>France: 1.6% of income, GDP per capita 47,842, female LFP 51.9%</title></circle>
+    <circle cx="389.1" cy="414.0" r="9.8" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Japan: 1.5% of income, GDP per capita 40,246, female LFP 51.3%</title></circle>
+    <circle cx="291.8" cy="368.4" r="9.7" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Portugal: 1.8% of income, GDP per capita 27,892, female LFP 50.5%</title></circle>
+    <circle cx="197.9" cy="277.2" r="9.6" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Chile: 2.4% of income, GDP per capita 15,982, female LFP 50.1%</title></circle>
+    <circle cx="369.0" cy="414.0" r="9.6" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Italy: 1.5% of income, GDP per capita 37,689, female LFP 49.8%</title></circle>
+    <circle cx="132.8" cy="216.4" r="9.5" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Colombia: 2.8% of income, GDP per capita 7,714, female LFP 49.2%</title></circle>
+    <circle cx="88.6" cy="125.2" r="9.5" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Kenya: 3.4% of income, GDP per capita 2,101, female LFP 49.1%</title></circle>
+    <circle cx="157.4" cy="231.6" r="9.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Argentina: 2.7% of income, GDP per capita 10,839, female LFP 48.9%</title></circle>
+    <circle cx="175.6" cy="262.0" r="9.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Costa Rica: 2.5% of income, GDP per capita 13,153, female LFP 48.7%</title></circle>
+    <circle cx="130.1" cy="246.8" r="9.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Peru: 2.6% of income, GDP per capita 7,373, female LFP 48.3%</title></circle>
+    <circle cx="89.5" cy="110.0" r="9.3" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Nigeria: 3.5% of income, GDP per capita 2,220, female LFP 48%</title></circle>
+    <circle cx="101.5" cy="201.2" r="9.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Philippines: 2.9% of income, GDP per capita 3,749, female LFP 47.8%</title></circle>
+    <circle cx="260.7" cy="338.0" r="9.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Greece: 2% of income, GDP per capita 23,943, female LFP 47.2%</title></circle>
+    <circle cx="125.8" cy="155.6" r="9.1" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>South Africa: 3.2% of income, GDP per capita 6,822, female LFP 46.7%</title></circle>
+    <circle cx="157.0" cy="307.6" r="8.8" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Mexico: 2.2% of income, GDP per capita 10,791, female LFP 45.3%</title></circle>
+    <circle cx="90.3" cy="155.6" r="8.7" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Ghana: 3.2% of income, GDP per capita 2,321, female LFP 44.5%</title></circle>
+    <circle cx="414.4" cy="322.8" r="8.5" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>United Arab Emirates: 2.1% of income, GDP per capita 43,451, female LFP 43.1%</title></circle>
+    <circle cx="148.0" cy="246.8" r="8.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Cuba: 2.6% of income, GDP per capita 9,641, female LFP 41.2%</title></circle>
+    <circle cx="93.2" cy="125.2" r="7.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Bangladesh: 3.4% of income, GDP per capita 2,692, female LFP 36.2%</title></circle>
+    <circle cx="161.7" cy="277.2" r="7.1" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Turkey: 2.4% of income, GDP per capita 11,382, female LFP 34.5%</title></circle>
+    <circle cx="91.7" cy="170.8" r="5.5" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>India: 3.1% of income, GDP per capita 2,505, female LFP 24.5%</title></circle>
+    <circle cx="104.6" cy="186.0" r="5.2" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Morocco: 3% of income, GDP per capita 4,132, female LFP 22.5%</title></circle>
+    <circle cx="85.5" cy="140.4" r="5.0" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Pakistan: 3.3% of income, GDP per capita 1,717, female LFP 21.5%</title></circle>
+    <circle cx="288.9" cy="292.4" r="4.8" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Saudi Arabia: 2.3% of income, GDP per capita 27,520, female LFP 20.3%</title></circle>
+    <circle cx="104.5" cy="170.8" r="4.4" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Egypt: 3.1% of income, GDP per capita 4,120, female LFP 17.8%</title></circle>
+    <circle cx="97.8" cy="186.0" r="4.0" fill="#315f55" fill-opacity="0.55" stroke="#fcfbf7" stroke-width="1"><title>Iran: 3% of income, GDP per capita 3,271, female LFP 15.2%</title></circle>
+    <text x="361.0" y="267.2" font-size="14" font-weight="700">South Korea</text>
+    <text x="637.6" y="343.2" font-size="14" font-weight="700">United States</text>
+    <g font-size="12" fill="#535e56" transform="translate(630 116)">
+      <text x="0" y="0">Female labor-force participation</text>
+      <circle cx="12" cy="22" r="4.8" fill="#315f55" fill-opacity=".55"/><text x="28" y="26">20%</text><circle cx="82" cy="22" r="8.0" fill="#315f55" fill-opacity=".55"/><text x="98" y="26">40%</text><circle cx="152" cy="22" r="11.2" fill="#315f55" fill-opacity=".55"/><text x="168" y="26">60%</text>
+    </g>
+  </g>
+</svg>

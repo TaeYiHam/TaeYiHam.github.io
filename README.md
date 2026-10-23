@@ -54,6 +54,8 @@ Pearson correlations are recalculated over the selected complete observations.
 - `scripts/case-content.mjs`: case-study narrative, figures and supporting materials.
 - `scripts/build-home.mjs` and `scripts/build.mjs`: dependency-free static generation.
 - `csv.mjs`: CSV parsing, missing-value conversion and descriptive correlation.
+- `scripts/make-beauty-chart.mjs`: redraws `assets/beauty-income-share.svg` in the
+  site palette from the unchanged Beauty CSV (`node scripts/make-beauty-chart.mjs`).
 
 Run from the repository root:
 
