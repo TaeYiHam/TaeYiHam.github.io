@@ -63,3 +63,22 @@ if (sectionLinks.length && 'IntersectionObserver' in window) {
   }, {rootMargin: '-15% 0px -65% 0px'});
   document.querySelectorAll('.case-section').forEach(section => observer.observe(section));
 }
+const specToggle = document.querySelector('[data-spec-toggle]');
+if (specToggle) {
+  const details = {
+    with: 'With admission rate: 1,618 institutions have complete data. Admission rate is missing for 69.55% of the audited source, so including it narrows the sample. Adjusted R² 0.4815.',
+    without: 'Without admission rate: 2,138 institutions (+520) remain. Adjusted R² 0.4082 on this different sample, so the two values are not a controlled comparison.'
+  };
+  const buttons = [...specToggle.querySelectorAll('[data-spec]')];
+  const detail = specToggle.querySelector('[data-spec-detail]');
+  const select = spec => {
+    specToggle.dataset.active = spec;
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.spec === spec)));
+    detail.textContent = details[spec];
+  };
+  specToggle.classList.add('enhanced');
+  specToggle.querySelector('.spec-buttons').hidden = false;
+  detail.hidden = false;
+  buttons.forEach(button => button.addEventListener('click', () => select(button.dataset.spec)));
+  select('with');
+}

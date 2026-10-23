@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="World Happiness Factors">
+  <rect width="900" height="520" fill="#e6ece4"/>
+  <rect x="38" y="38" width="824" height="444" rx="8" fill="#fcfbf7" stroke="#d4d8ce"/>
+  <g font-family="Inter, Arial, Helvetica, sans-serif" fill="#19201c">
+    <text x="78" y="110" font-size="20" font-weight="700" letter-spacing="3" fill="#315f55">ACADEMIC PROJECT · FALL 2023</text>
+    <text x="78" y="230" font-size="62" font-weight="700" letter-spacing="-2">What relates to happiness?</text>
+    <text x="78" y="300" font-size="30" fill="#535e56">World Happiness Factors</text>
+    <path d="M78 380H822" stroke="#d4d8ce"/>
+    <text x="78" y="430" font-size="26" fill="#315f55">R · Correlation · Regression</text>
+  </g>
+</svg>

@@ -15,7 +15,7 @@ export function buildHome(root) {
   const rank = {'Fall 2026':5,'Spring 2026':4,'Fall 2025':3,'Summer 2025':2,'Fall 2023':1};
   const archive = [...projects].sort((a,b) => rank[catalog[b.slug].date] - rank[catalog[a.slug].date]).map(project => {
     const info = catalog[project.slug];
-    return `<a class="journey-row" href="projects/${project.slug}.html"><span>${info.date}</span><strong>${escape(info.shortTitle)}</strong><span>${escape(info.tools)}</span><b aria-hidden="true">↗</b></a>`;
+    return `<a class="journey-row" href="projects/${project.slug}.html"><span>${info.date}</span><img class="journey-thumb" src="assets/${info.image}" alt="" width="90" height="52" loading="lazy" decoding="async"><strong>${escape(info.shortTitle)}</strong><span>${escape(info.tools)}</span><b aria-hidden="true">↗</b></a>`;
   }).join('\n');
   const html = readFileSync(root + 'scripts/home-template.html','utf8').replace('{{FEATURED_PROJECTS}}', featured).replace('{{PROJECT_INDEX}}', archive);
   writeFileSync(root + 'index.html', html.replaceAll('><', '>\n<') + '\n');
