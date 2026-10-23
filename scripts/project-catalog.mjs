@@ -58,7 +58,7 @@ export const catalog = {
     featured: true,
     readingTime: '3 min read',
     application: 'Data & operations analytics',
-    applicationText: 'Cleaning identifiers, splitting multi-value fields, and defining entity relationships are transferable to operational datasets. This project demonstrates those methods using music data; it does not claim supply-chain domain experience.',
+    applicationText: 'Cleaning identifiers, splitting multi-value fields, and defining entity relationships are transferable to operational datasets. These methods help analysts avoid duplicated entities and inconsistent relationships in operational reporting.',
     resources: [['View original presentation', 'https://github.com/TaeYiHam/Spotify-Music-Graph-Analysis/blob/main/Spotify%20Music%20Graph%20Project.pdf'], ['Inspect Cypher queries', 'https://github.com/TaeYiHam/Spotify-Music-Graph-Analysis/blob/main/cypher/queries.cypher']],
     workflow: [
       ['Prepare', 'Handle duplicate track IDs and split records with multiple artists.'],
