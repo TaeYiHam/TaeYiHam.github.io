@@ -60,6 +60,9 @@ async function startExplorer(){
    for(const row of [...rows].sort((a,b)=>a.country.localeCompare(b.country))){const tr=document.createElement('tr');for(const value of [row.country,format(row[x]),format(row[y])]){const td=document.createElement('td');td.textContent=value;tr.append(td);}tbody.append(tr);}
   }
   for(const control of [regionSelect,xSelect,ySelect])control.addEventListener('change',render);
+  document.getElementById('reset-explorer')?.addEventListener('click',()=>{
+   regionSelect.value='all';xSelect.value='gdp_pc';ySelect.value='beauty_pc';render();
+  });
   render();
  }catch(error){summary.textContent='The preview could not load. Download the CSV below or view the R Shiny source on GitHub.';}
 }
