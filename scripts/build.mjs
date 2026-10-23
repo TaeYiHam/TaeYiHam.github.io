@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 process.chdir(root);
 buildHome(root);
-const version='20261023-evidence';
+const version='20261023-visual';
 const escape=s=>s.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
 const nav=`<nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html">Tae Yi Ham<span class="brand-dot" aria-hidden="true">.</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button><div class="links" id="nav-links"><a href="../index.html#work">All work</a><a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF) ↗</a><a class="nav-contact" href="mailto:hamtaeyi0416@gmail.com">Contact</a></div></nav>`;
 const explorer = readFileSync(root + 'scripts/explorer-template.html', 'utf8');
