@@ -1471,3 +1471,12 @@ footer {
 
 }
 
+
+/* Keep supporting methods available without delaying the main findings. */
+.workflow-details summary { cursor: pointer; list-style-position: inside; }
+.workflow-details summary h2 { display: inline; margin: 0; font-size: 25px; }
+.workflow-details summary span { display: block; margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.workflow-details[open] summary { margin-bottom: 22px; }
+.evidence-table td { font-variant-numeric: tabular-nums; }
+.evidence-table th:not(:first-child), .evidence-table td { white-space: nowrap; }
+@media print { .workflow-details { display: none; } }
