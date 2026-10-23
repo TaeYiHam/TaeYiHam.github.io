@@ -4,9 +4,9 @@ export const projects = [
     "slug": "higher-education-outcomes",
     "title": "Higher Education Outcomes Analysis",
     "meta": "Ongoing capstone · Fall 2026",
-    "summary": "Examining how college characteristics relate to completion and earnings, and how missing data change which institutions are represented.",
+    "summary": "An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.",
     "takeaway": "Removing admission rate from the completion model made 520 more institutions usable. Because the sample and predictors both changed, this comparison cannot isolate the effect of admission rate.",
-    "skills": "R · Regression · Lasso · PCA",
+    "skills": "R · SQL (SQLite) · Excel · Python",
     "evidence": [
       [
         "1,618",
@@ -25,7 +25,12 @@ export const projects = [
       [
         "contribution",
         "My contribution",
-        "<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared completion samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA.</p>"
+        "<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Extended the project with a Python-to-SQLite audit and an Excel report for sample-count checks, institution-type summaries, and missingness review.</p>"
+      ],
+      [
+        "validation",
+        "SQL validation & Excel reporting",
+        "<p>The extension audits the same 14 selected fields used in the R analysis. A Python importer converts finite numeric values to numbers, maps suppressed or non-numeric entries to NULL, and derives institution-type labels. SQLite checks identifiers, defines complete-case membership for four analyses, and exports counts, row-level membership flags, missingness, and institution-type summaries.</p><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"SQL sample-count comparison\"><table class=\"evidence-table\"><caption>SQLite output compared with previously reported R counts</caption><thead><tr><th scope=\"col\">Analysis sample</th><th scope=\"col\">SQLite count</th><th scope=\"col\">Reported R count</th></tr></thead><tbody><tr><th scope=\"row\">Completion with admission</th><td>1,618</td><td>1,618</td></tr><tr><th scope=\"row\">Completion without admission</th><td>2,138</td><td>2,138</td></tr><tr><th scope=\"row\">Earnings</th><td>1,949</td><td>1,949</td></tr><tr><th scope=\"row\">PCA</th><td>1,727</td><td>1,727</td></tr></tbody></table></div><p>The saved audit contains 6,273 records with unique, non-missing UNITIDs. All four SQL counts agree with the reported R references. Independent R execution and exact UNITID-membership reconciliation remain open; count agreement alone does not establish that the included records or numerical results are identical.</p><h3>What the Excel report contains</h3><p>A Python-generated workbook organizes four worksheets: Validation, Definitions, Summary, and Missingness. Difference and IF formulas compare SQL counts with reported R counts. Institution-type summaries include the available-observation counts beside the means.</p><p class=\"case-note\">To update this saved report, rerun the audit and regenerate the workbook from its exported results.</p>"
       ],
       [
         "findings",
@@ -40,17 +45,17 @@ export const projects = [
       [
         "data",
         "Data and sample",
-        "<p>The source contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. Admission rate was missing for 69.6% of the source.</p>"
+        "<p>The audited source snapshot contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. The saved SQL missingness output reports admission rate missing for 69.55% of the source.</p>"
       ],
       [
         "scope",
         "Interpretation and next steps",
-        "<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization. A useful comparison needs both sample coverage and predictive evaluation. Planned work includes comparing Random Forest, linear regression, and Lasso on a common sample and evaluation procedure, followed by a dashboard.</p><p class=\"case-note\">Results documented in my Weekly Updates #5 and #6. This project is ongoing; the source repository is private.</p>"
+        "<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization. The next validation step is to independently export R sample-membership flags and reconcile them with the SQL output, then review the workbook in desktop Excel. Random Forest comparison on a common sample and evaluation procedure remains planned.</p><p class=\"case-note\">Statistical results are documented in Weekly Updates #5 and #6. The SQL and Excel extension was reviewed on October 23, 2026. The project and source repository remain private; selected methods and aggregate results are summarized here.</p>"
       ]
     ],
     "materials": [
       [
-        "Ask about this project",
+        "Ask about the analysis and validation report",
         "mailto:hamtaeyi0416@gmail.com?subject=Higher%20Education%20project%20details"
       ]
     ]
