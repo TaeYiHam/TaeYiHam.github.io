@@ -1,1 +1,258 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f3f1eb"><title>Global Beauty Spending Analysis — Tae Yi Ham</title><meta name="description" content="An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries."><meta property="og:title" content="Global Beauty Spending Analysis — Tae Yi Ham"><meta property="og:description" content="An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries."><link rel="canonical" href="https://taeyiham.github.io/projects/global-beauty-spending.html"><link rel="stylesheet" href="../styles.css?v=20261022"></head><body><a class="skip-link" href="#main">Skip to content</a><div class="wrap"><nav class="nav" aria-label="Main navigation"><a class="brand" href="../index.html">Tae Yi Ham<span class="brand-dot" aria-hidden="true">.</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span></button><div class="links" id="nav-links"><a href="../index.html#work">All work</a><a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF) ↗</a><a class="nav-contact" href="mailto:hamtaeyi0416@gmail.com">Contact</a></div></nav><main id="main" class="case-page"><div class="case-toolbar"><a href="../index.html#work">← Selected work</a><div class="utility-actions"><button type="button" data-copy-link hidden>Copy project link</button><button type="button" id="print-case">Print / Save PDF</button></div><span class="sr-only" id="copy-status" role="status" aria-live="polite"></span></div><header class="case-header"><div class="kicker">Academic project · Summer 2025</div><h1>Global Beauty Spending Analysis</h1><p class="summary">An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries.</p><div class="tags">R · R Shiny · ggplot2</div><div class="actions"><a class="btn dark" href="#explorer">Explore dashboard ↓</a><a class="btn" href="#findings">Read findings ↓</a></div></header><details class="toc-mobile"><summary>On this page</summary><nav aria-label="Page sections"><a href="#question">The question</a><a href="#contribution">My work</a><a href="#findings">Findings and evidence</a><a href="#explorer">Explore the data</a><a href="#scope">Data and interpretation</a><a href="#materials">Materials</a></nav></details><div class="case-layout"><article><aside class="reading-note" aria-label="Project takeaway"><span class="kicker">At a glance</span><p>Spending per person and spending as a share of household income give different views of a market. Compare both before choosing markets for closer research.</p></aside><dl class="evidence"><div><dt>countries</dt><dd>50</dd></div><div><dt>project data year</dt><dd>2023</dd></div><div><dt>spending measures</dt><dd>2</dd></div></dl><section class="case-section" id="question" aria-labelledby="question-title"><h2 id="question-title">The question</h2><p>Do countries with similar levels of economic development and gender equality still differ in beauty spending, and what regional patterns appear?</p></section><section class="case-section" id="contribution" aria-labelledby="contribution-title"><h2 id="contribution-title">My work</h2><p>Integrated country-level socioeconomic indicators and beauty-spending estimates. Built an R Shiny dashboard with regional filters, scatter plots, trend lines, Pearson correlations, box plots, and a bubble-chart view.</p></section><section class="case-section" id="findings" aria-labelledby="findings-title"><h2 id="findings-title">Findings and evidence</h2><p>Exploratory analysis suggested higher-income countries generally had higher spending per capita, while lower-income countries often devoted a larger share of household income to beauty spending. Regional differences remained visible.</p><div class="gallery"><figure><a class="chart-link" href="../assets/project-visual-2.png" target="_blank" rel="noopener noreferrer" aria-label="Open chart at full size"><img src="../assets/project-visual-2.png" alt="GDP per capita versus beauty spending as a share of household income across 50 countries" loading="lazy" decoding="async"><span class="chart-hint">Open full size ↗</span></a><figcaption>Reproduced from the repository dataset. Point size represents female labor-force participation.</figcaption></figure></div></section><section class="case-section explorer" id="explorer" aria-labelledby="explorer-title"><h2 id="explorer-title">Explore the data</h2><p>A browser preview using the original 2023 project CSV. The full R Shiny app source is linked below. These are academic project estimates, not current market prices.</p><div class="explorer-controls"><label for="region">Region</label><select id="region"><option value="all">All regions</option></select><label for="xvar">Compare against</label><select id="xvar"><option value="gdp_pc">GDP per capita</option><option value="gii">Gender Inequality Index</option><option value="flfpr">Female labor-force participation (%)</option></select><label for="yvar">Spending measure</label><select id="yvar"><option value="beauty_pc">Spending per capita</option><option value="beauty_pct">Spending (% of household income)</option></select><button id="reset-explorer" type="button">Reset filters ↺</button></div><p id="explorer-summary" role="status" aria-live="polite">Loading project data…</p><div class="plot-scroll" tabindex="0" aria-label="Scatter plot, scroll horizontally on smaller screens"><div id="scatter"></div></div><p class="case-note">Hover over or focus a point for its values. On smaller screens, scroll the chart sideways or use the data table. GDP and per-capita spending use the original CSV units without an unverified currency label.</p><details class="data-details"><summary>View the selected data</summary><div class="table-scroll" tabindex="0" aria-label="Selected country data"><table><caption>Countries in the selected region</caption><thead><tr><th scope="col">Country</th><th scope="col" id="x-heading">GDP per capita</th><th scope="col" id="y-heading">Spending per capita</th></tr></thead><tbody id="data-rows"></tbody></table></div></details><noscript><p>Enable JavaScript to use the preview, or download the project CSV in Materials.</p></noscript></section><section class="case-section" id="scope" aria-labelledby="scope-title"><h2 id="scope-title">Data and interpretation</h2><p>The 2023 dataset combines GDP per capita, the Gender Inequality Index, female labor-force participation, and two spending measures. Socioeconomic indicators were drawn from World Bank, UNDP, and ILOSTAT sources. Beauty-spending values were manually compiled from secondary market reports and are project-level estimates rather than a standardized official dataset.</p><p>The sample is descriptive and does not establish causation or market profitability. Use it to identify questions for further research, then validate local demand, prices, distribution costs, and source comparability before recommending market entry or pricing.</p></section><section class="case-section" id="materials"><h2>Materials</h2><div class="material-links"><a class="btn" href="https://github.com/TaeYiHam/Global-Beauty-Spending-Analysis" target="_blank" rel="noopener noreferrer">View R Shiny source ↗</a><a class="btn" href="../assets/beauty-data.csv" download>Download project data (CSV) ↓</a></div></section></article><nav class="contents" aria-label="On this page"><div class="kicker">On this page</div><a href="#question">The question</a><a href="#contribution">My work</a><a href="#findings">Findings and evidence</a><a href="#explorer">Explore the data</a><a href="#scope">Data and interpretation</a><a href="#materials">Materials</a></nav></div><section class="more-work"><div class="kicker">Keep exploring</div><h2>More work</h2><a href="higher-education-outcomes.html"><span>Higher Education Outcomes Analysis</span><b aria-hidden="true">↗</b></a><a href="spotify-music-graph.html"><span>Spotify Music Graph Analysis</span><b aria-hidden="true">↗</b></a><a href="coca-cola-pepsi-sentiment.html"><span>Coca-Cola & Pepsi: Stock Price and Public Sentiment</span><b aria-hidden="true">↗</b></a></section></main><footer><div class="footer-bottom"><a href="mailto:hamtaeyi0416@gmail.com">Discuss this project ↗</a><a href="#main">Back to top ↑</a></div></footer></div><script src="../script.js?v=20261022" defer></script><script src="../explorer.js?v=20261022" defer></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3f1eb">
+<title>Global Beauty Spending Analysis — Tae Yi Ham</title>
+<meta name="description" content="An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://taeyiham.github.io/profile.webp">
+<meta property="og:title" content="Global Beauty Spending Analysis — Tae Yi Ham">
+<meta property="og:description" content="An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries.">
+<link rel="canonical" href="https://taeyiham.github.io/projects/global-beauty-spending.html">
+<link rel="stylesheet" href="../styles.css?v=20261023">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="wrap">
+<nav class="nav" aria-label="Main navigation">
+<a class="brand" href="../index.html">Tae Yi Ham<span class="brand-dot" aria-hidden="true">.</span>
+</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu <span aria-hidden="true">+</span>
+</button>
+<div class="links" id="nav-links">
+<a href="../index.html#work">All work</a>
+<a href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF) ↗</a>
+<a class="nav-contact" href="mailto:hamtaeyi0416@gmail.com">Contact</a>
+</div>
+</nav>
+<main id="main" class="case-page">
+<div class="case-toolbar">
+<a href="../index.html#work">← Selected work</a>
+<div class="utility-actions">
+<button type="button" data-copy-link hidden>Copy project link</button>
+<button type="button" id="print-case">Print / Save PDF</button>
+</div>
+<span class="sr-only" id="copy-status" role="status" aria-live="polite">
+</span>
+</div>
+<header class="case-header">
+<div class="case-meta">
+<span class="kicker">Academic project · Summer 2025</span>
+<span class="reading-time">3 min + interactive preview</span>
+</div>
+<h1>Global Beauty Spending Analysis</h1>
+<p class="summary">An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries.</p>
+<div class="tags">R · R Shiny · ggplot2</div>
+<div class="resource-strip">
+<a class="btn dark" href="#explorer">Explore dashboard ↓</a>
+<a class="btn" href="https://github.com/TaeYiHam/Global-Beauty-Spending-Analysis/blob/main/app.R" target="_blank" rel="noopener noreferrer">Inspect R code ↗</a>
+</div>
+</header>
+<details class="toc-mobile">
+<summary>On this page</summary>
+<nav aria-label="Page sections">
+<a href="#workflow">Approach</a>
+<a href="#question">The question</a>
+<a href="#contribution">My work</a>
+<a href="#method">A closer look at the method</a>
+<a href="#findings">Findings and evidence</a>
+<a href="#explorer">Explore the data</a>
+<a href="#scope">Data and interpretation</a>
+<a href="#application">Business relevance</a>
+<a href="#materials">Materials</a>
+</nav>
+</details>
+<div class="case-layout">
+<article>
+<aside class="reading-note" aria-label="Project takeaway">
+<span class="kicker">At a glance</span>
+<p>Spending per person and spending as a share of household income give different views of a market. Compare both before choosing markets for closer research.</p>
+</aside>
+<dl class="evidence">
+<div>
+<dt>countries</dt>
+<dd>50</dd>
+</div>
+<div>
+<dt>project data year</dt>
+<dd>2023</dd>
+</div>
+<div>
+<dt>spending measures</dt>
+<dd>2</dd>
+</div>
+</dl>
+<section class="case-section" id="workflow">
+<h2>How I approached it</h2>
+<ol class="workflow">
+<li>
+<strong>Integrate</strong>
+<span>Combine socioeconomic indicators and secondary beauty-spending estimates.</span>
+</li>
+<li>
+<strong>Explore</strong>
+<span>Compare regions, indicators, and spending definitions in R Shiny.</span>
+</li>
+<li>
+<strong>Communicate</strong>
+<span>Explain the patterns alongside source comparability and interpretation limits.</span>
+</li>
+</ol>
+</section>
+<section class="case-section" id="question" aria-labelledby="question-title">
+<h2 id="question-title">The question</h2>
+<p>Do countries with similar levels of economic development and gender equality still differ in beauty spending, and what regional patterns appear?</p>
+</section>
+<section class="case-section" id="contribution" aria-labelledby="contribution-title">
+<h2 id="contribution-title">My work</h2>
+<p>Integrated country-level socioeconomic indicators and beauty-spending estimates. Built an R Shiny dashboard with regional filters, scatter plots, trend lines, Pearson correlations, box plots, and a bubble-chart view.</p>
+</section>
+<section class="case-section" id="method" aria-labelledby="method-title">
+<h2 id="method-title">A closer look at the method</h2>
+<p>The R Shiny app filters the same country-level dataset before updating its charts and statistics. The code below shows the preserved complete-case check used for the selected correlation.</p>
+<details class="code-evidence">
+<summary>Inspect the R correlation calculation</summary>
+<pre>
+<code>plot_data &lt;- filtered_data()
+complete_rows &lt;- complete.cases(
+  plot_data[[input$xvar]], plot_data[[input$yvar]]
+)
+
+if (sum(complete_rows) &lt; 3) {
+  return("Correlation: not enough complete observations")
+}
+
+cor(
+  plot_data[[input$xvar]][complete_rows],
+  plot_data[[input$yvar]][complete_rows]
+)</code>
+</pre>
+<p class="case-note">Excerpt from the public app.R. The browser preview below is a separate implementation using the same project CSV.</p>
+</details>
+</section>
+<section class="case-section" id="findings" aria-labelledby="findings-title">
+<h2 id="findings-title">Findings and evidence</h2>
+<p>Exploratory analysis suggested higher-income countries generally had higher spending per capita, while lower-income countries often devoted a larger share of household income to beauty spending. Regional differences remained visible.</p>
+<div class="gallery">
+<figure>
+<a class="chart-link" href="../assets/project-visual-2.png" target="_blank" rel="noopener noreferrer" aria-label="Open chart at full size">
+<img src="../assets/project-visual-2.png" alt="GDP per capita versus beauty spending as a share of household income across 50 countries" loading="lazy" decoding="async">
+<span class="chart-hint">Open full size ↗</span>
+</a>
+<figcaption>Reproduced from the repository dataset. Point size represents female labor-force participation.</figcaption>
+</figure>
+</div>
+</section>
+<section class="case-section explorer" id="explorer" aria-labelledby="explorer-title">
+<h2 id="explorer-title">Explore the data</h2>
+<p>A browser preview using the original 2023 project CSV. The full R Shiny app source is linked below. These are academic project estimates, not current market prices.</p>
+<div class="explorer-controls">
+<label for="region">Region</label>
+<select id="region">
+<option value="all">All regions</option>
+</select>
+<label for="xvar">Compare against</label>
+<select id="xvar">
+<option value="gdp_pc">GDP per capita</option>
+<option value="gii">Gender Inequality Index</option>
+<option value="flfpr">Female labor-force participation (%)</option>
+</select>
+<label for="yvar">Spending measure</label>
+<select id="yvar">
+<option value="beauty_pc">Spending per capita</option>
+<option value="beauty_pct">Spending (% of household income)</option>
+</select>
+<button id="reset-explorer" type="button">Reset filters ↺</button>
+</div>
+<p id="explorer-summary" role="status" aria-live="polite">Loading project data…</p>
+<div class="plot-scroll" tabindex="0" aria-label="Scatter plot, scroll horizontally on smaller screens">
+<div id="scatter">
+</div>
+</div>
+<p class="case-note">Hover over or focus a point for its values. On smaller screens, scroll the chart sideways or use the data table. GDP and per-capita spending use the original CSV units without an unverified currency label.</p>
+<details class="data-details">
+<summary>View the selected data</summary>
+<div class="table-scroll" tabindex="0" aria-label="Selected country data">
+<table>
+<caption>Countries in the selected region</caption>
+<thead>
+<tr>
+<th scope="col">Country</th>
+<th scope="col" id="x-heading">GDP per capita</th>
+<th scope="col" id="y-heading">Spending per capita</th>
+</tr>
+</thead>
+<tbody id="data-rows">
+</tbody>
+</table>
+</div>
+</details>
+<noscript>
+<p>Enable JavaScript to use the preview, or download the project CSV in Materials.</p>
+</noscript>
+</section>
+<section class="case-section" id="scope" aria-labelledby="scope-title">
+<h2 id="scope-title">Data and interpretation</h2>
+<p>The 2023 dataset combines GDP per capita, the Gender Inequality Index, female labor-force participation, and two spending measures. Socioeconomic indicators were drawn from World Bank, UNDP, and ILOSTAT sources. Beauty-spending values were manually compiled from secondary market reports and are project-level estimates rather than a standardized official dataset.</p>
+<p>The sample is descriptive and does not establish causation or market profitability. Use it to identify questions for further research, then validate local demand, prices, distribution costs, and source comparability before recommending market entry or pricing.</p>
+</section>
+<section class="case-section" id="application">
+<h2>Why this work matters</h2>
+<div class="application-note">
+<span class="kicker">Market research &amp; pricing research</span>
+<p>Compare both absolute spending and spending relative to income when framing market-research questions. These indicators help prioritize further investigation; they do not establish a profitable price or market-entry decision.</p>
+</div>
+</section>
+<section class="case-section" id="materials">
+<h2>Materials</h2>
+<div class="material-links">
+<a class="btn" href="https://github.com/TaeYiHam/Global-Beauty-Spending-Analysis" target="_blank" rel="noopener noreferrer">View R Shiny source ↗</a>
+<a class="btn" href="../assets/beauty-data.csv" download>Download project data (CSV) ↓</a>
+</div>
+</section>
+</article>
+<nav class="contents" aria-label="On this page">
+<div class="kicker">On this page</div>
+<a href="#workflow">Approach</a>
+<a href="#question">The question</a>
+<a href="#contribution">My work</a>
+<a href="#method">A closer look at the method</a>
+<a href="#findings">Findings and evidence</a>
+<a href="#explorer">Explore the data</a>
+<a href="#scope">Data and interpretation</a>
+<a href="#application">Business relevance</a>
+<a href="#materials">Materials</a>
+</nav>
+</div>
+<section class="more-work">
+<div class="kicker">Keep exploring</div>
+<h2>More work</h2>
+<a href="higher-education-outcomes.html">
+<span>Higher Education Outcomes Analysis</span>
+<b aria-hidden="true">↗</b>
+</a>
+<a href="spotify-music-graph.html">
+<span>Spotify Music Graph Analysis</span>
+<b aria-hidden="true">↗</b>
+</a>
+<a href="coca-cola-pepsi-sentiment.html">
+<span>Coca-Cola & Pepsi: Stock Price and Public Sentiment</span>
+<b aria-hidden="true">↗</b>
+</a>
+</section>
+</main>
+<footer>
+<div class="footer-bottom">
+<a href="mailto:hamtaeyi0416@gmail.com">Discuss this project ↗</a>
+<a href="#main">Back to top ↑</a>
+</div>
+</footer>
+</div>
+<script src="../script.js?v=20261023" defer>
+</script>
+<script src="../explorer.js?v=20261023" type="module">
+</script>
+</body>
+</html>

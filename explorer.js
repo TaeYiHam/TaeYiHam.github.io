@@ -1,3 +1,5 @@
+import { parseCSV, numericValue, correlation } from './csv.mjs';
+
 // Portfolio preview of the public 2023 project CSV; no external services.
 const regionGroups={
  Asia:['South Korea','Japan','China','India','Indonesia','Vietnam','Thailand','Malaysia','Philippines','Pakistan','Bangladesh','Singapore'],
@@ -18,17 +20,18 @@ const svgNS='http://www.w3.org/2000/svg';
 function svgNode(tag,attrs={},text){const n=document.createElementNS(svgNS,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
 function axisMaximum(value){const magnitude=10**Math.floor(Math.log10(value||1));return Math.ceil(value/magnitude)*magnitude;}
 function format(n){return n.toLocaleString('en-US',{maximumFractionDigits:3});}
-function correlation(rows,x,y){
- if(rows.length<3)return null;
- const mx=rows.reduce((a,r)=>a+r[x],0)/rows.length,my=rows.reduce((a,r)=>a+r[y],0)/rows.length;
- let cov=0,vx=0,vy=0;for(const r of rows){const dx=r[x]-mx,dy=r[y]-my;cov+=dx*dy;vx+=dx*dx;vy+=dy*dy;}
- return vx&&vy?cov/Math.sqrt(vx*vy):null;
-}
+
 async function startExplorer(){
  try{
   const response=await fetch('../assets/beauty-data.csv');if(!response.ok)throw Error('Dataset unavailable');
-  const lines=(await response.text()).trim().split(/\r?\n/),keys=lines.shift().split(',');
-  const data=lines.map(line=>Object.fromEntries(line.split(',').map((v,i)=>[keys[i],i===0?v:Number(v)])));
+  const records = parseCSV(await response.text());
+  const keys = records.shift();
+  const expected = ['country', 'year', 'gdp_pc', 'gii', 'flfpr', 'beauty_pc', 'beauty_pct'];
+  if (!keys || expected.some(key => !keys.includes(key))) throw new Error('Unexpected CSV schema');
+  const data = records.map(values => {
+    if (values.length !== keys.length) throw new Error('Invalid CSV row');
+    return Object.fromEntries(keys.map((key, i) => [key, key === 'country' ? values[i] : numericValue(values[i])]));
+  });
   for(const row of data)row.region=Object.entries(regionGroups).find(([,countries])=>countries.includes(row.country))?.[0]||'Other';
   for(const name of [...new Set(data.map(r=>r.region))].sort()){const o=document.createElement('option');o.value=name;o.textContent=name;regionSelect.append(o);}
   function render(){
@@ -39,6 +42,11 @@ async function startExplorer(){
    summary.textContent=`${rows.length} countries · 2023 · Pearson r: ${r===null?'not reported for fewer than 3 countries or constant values':r.toFixed(2)} · Mean spending: ${mean===null?'not available':format(mean)}. Unweighted country sample; descriptive associations.`;
    const svg=svgNode('svg',{viewBox:'0 0 760 460',role:'group','aria-labelledby':'plot-title plot-desc'});
    svg.append(svgNode('title',{id:'plot-title'},`${variableLabels[y]} versus ${variableLabels[x]}`),svgNode('desc',{id:'plot-desc'},`${rows.length} countries in ${regionSelect.value==='all'?'all regions':regionSelect.value}. Full values are available in the table below.`));
+   if (!rows.length) {
+    chart.textContent = 'No complete observations for this selection.';
+    document.getElementById('data-rows').replaceChildren();
+    return;
+   }
    const maxX=axisMaximum(Math.max(...rows.map(r=>r[x]),0.001)),maxY=axisMaximum(Math.max(...rows.map(r=>r[y]),0.001));
    for(let i=0;i<=4;i++){
     const px=90+i*620/4,py=385-i*335/4;
