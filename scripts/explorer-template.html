@@ -1,0 +1,45 @@
+<p>A browser preview using the original 2023 project CSV. The full R Shiny app source is linked below. These are academic project estimates, not current market prices.</p>
+<div class="explorer-controls">
+<label for="region">Region</label>
+<select id="region">
+<option value="all">All regions</option>
+</select>
+<label for="xvar">Compare against</label>
+<select id="xvar">
+<option value="gdp_pc">GDP per capita</option>
+<option value="gii">Gender Inequality Index</option>
+<option value="flfpr">Female labor-force participation (%)</option>
+</select>
+<label for="yvar">Spending measure</label>
+<select id="yvar">
+<option value="beauty_pc">Spending per capita</option>
+<option value="beauty_pct">Spending (% of household income)</option>
+</select>
+<button id="reset-explorer" type="button">Reset filters ↺</button>
+</div>
+<p id="explorer-summary" role="status" aria-live="polite">Loading project data…</p>
+<div class="plot-scroll" tabindex="0" aria-label="Scatter plot, scroll horizontally on smaller screens">
+<div id="scatter">
+</div>
+</div>
+<p class="case-note">Hover over or focus a point for its values. On smaller screens, scroll the chart sideways or use the data table. GDP and per-capita spending use the original CSV units without an unverified currency label.</p>
+<details class="data-details">
+<summary>View the selected data</summary>
+<div class="table-scroll" tabindex="0" aria-label="Selected country data">
+<table>
+<caption>Countries in the selected region</caption>
+<thead>
+<tr>
+<th scope="col">Country</th>
+<th scope="col" id="x-heading">GDP per capita</th>
+<th scope="col" id="y-heading">Spending per capita</th>
+</tr>
+</thead>
+<tbody id="data-rows">
+</tbody>
+</table>
+</div>
+</details>
+<noscript>
+<p>Enable JavaScript to use the preview, or download the project CSV in Materials.</p>
+</noscript>

@@ -45,3 +45,35 @@ blob `a30191e01a948729dafdc4d7b9f3e61e53d1be8d`.
 Region membership follows that repository's `app.R`. Values are 2023 academic
 project estimates; the preview does not claim current prices or market forecasts.
 Pearson correlations are recalculated over the selected complete observations.
+
+## Source editing and checks
+
+- `scripts/home-template.html`: home layout and personal introduction.
+- `scripts/project-catalog.mjs`: shared project names, dates, tools, card evidence,
+  business relevance, workflow steps and primary resource links.
+- `scripts/case-content.mjs`: case-study narrative, figures and supporting materials.
+- `scripts/build-home.mjs` and `scripts/build.mjs`: dependency-free static generation.
+- `csv.mjs`: CSV parsing, missing-value conversion and descriptive correlation.
+
+Run from the repository root:
+
+```sh
+node scripts/build.mjs
+node --test tests/data.test.mjs
+python scripts/check-site.py
+```
+
+The optional HTML check uses Python `lxml`; the website and build do not require it.
+Commit generated `index.html` and `projects/*.html` alongside their source edits.
+The site remains usable without JavaScript; the interactive preview requires it.
+
+### Evidence provenance
+
+The Spotify example query is Task 6 in the preserved public
+`Spotify-Music-Graph-Analysis/cypher/queries.cypher` file (blob
+`8cd1c92c26b5321762b3b65a4fdb7f14c2da325f`). Its original Python and CSV files
+remain unavailable. The Beauty R excerpt is from the public `app.R` (blob
+`bafd4c041177539b943d97163d873e0605451bbd`). Capstone summary values are
+transcribed from Weekly Updates #5 and #6; the source remains private.
+Business-relevance descriptions explain transferable methods, not additional
+employment experience or measured commercial impact.
