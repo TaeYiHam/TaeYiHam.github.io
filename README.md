@@ -6,7 +6,7 @@ The site highlights selected data analytics and research projects, technical ski
 
 ## Featured Projects
 
-- **Higher Education Outcomes Analysis** — R, College Scorecard, regression, exploratory data analysis
+- **Higher Education Outcomes Analysis** — R regression, Lasso, and PCA on College Scorecard data; Python-to-SQLite data validation; automated Excel reporting (openpyxl)
 - **Global Beauty Spending Analysis** — R, R Shiny, ggplot2, cross-country analysis
 - **Spotify Music Graph Analysis** — Python, Neo4j, Cypher, graph databases
 
