@@ -77,3 +77,25 @@ remain unavailable. The Beauty R excerpt is from the public `app.R` (blob
 transcribed from Weekly Updates #5 and #6; the source remains private.
 Business-relevance descriptions explain transferable methods, not additional
 employment experience or measured commercial impact.
+
+### Capstone validation extension, October 23, 2026
+
+The capstone card and case study now describe the SQLite audit, Python import
+and report scripts, and Excel count-check workbook in the private capstone
+repository. Only selected methods and aggregate results are presented here.
+The raw data, private scripts, membership file, and workbook are not published
+in this website repository.
+
+Evidence reviewed: `RunValidation.py`, `sql/CollegeValidation.sql`,
+`validation/sample_counts.csv`, `validation/sample_membership.csv`,
+`validation/missingness.csv`, `validation/institution_type_summary.csv`,
+`BuildReport.py`, the saved Excel workbook, and the Rmd source. The saved
+membership file has 6,273 distinct IDs and yields the four reported counts.
+The workbook contains four worksheets and difference/IF formulas; no native
+PivotTables or chart objects were found in the reviewed file.
+
+The original source CSV was not rerun during this website update. The Rmd was
+not executed, and exact R-to-SQL membership or numerical equivalence has not
+been established. The site distinguishes reported count agreement from that
+remaining reconciliation. Existing regression and PCA figures remain tied to
+Weekly Updates #5 and #6.

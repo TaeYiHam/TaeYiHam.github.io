@@ -5,21 +5,21 @@ export const catalog = {
     category: 'Education analytics',
     date: 'Fall 2026',
     status: 'In progress',
-    image: 'project-visual-1.svg',
-    description: 'Testing how missing data change the institutions represented in an analysis of completion and earnings.',
-    proof: '520 more institutions',
-    proofContext: 'in the comparison excluding admission rate',
-    relevance: 'Data quality · Model interpretation',
-    tools: 'R · Regression · Lasso · PCA',
+    image: 'capstone-validation.svg',
+    description: 'Analyzing college outcomes in R, auditing sample selection in SQLite, and organizing validation results in Excel.',
+    proof: '4 sample counts reproduced',
+    proofContext: 'SQLite results match previously reported R counts',
+    relevance: 'Data validation · Statistical analysis · Reporting',
+    tools: 'R · SQL (SQLite) · Excel · Python',
     featured: true,
-    readingTime: '4 min read',
+    readingTime: '5 min read',
     application: 'Business & data analytics',
-    applicationText: 'Before comparing performance across groups, check whether missing data change who is represented. The same discipline matters when comparing customers, products, or suppliers.',
-    resources: [['See analysis evidence', '#findings']],
+    applicationText: 'Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The SQL audit and Excel count checks demonstrate a reporting workflow relevant to business analytics; exact R-to-SQL record reconciliation is the next validation step.',
+    resources: [['See SQL & Excel workflow', '#validation'], ['See model results', '#findings']],
     workflow: [
-      ['Prepare', 'Convert suppressed values to missing data and define institution groups.'],
-      ['Compare', 'Track complete-case samples and compare regression specifications.'],
-      ['Interpret', 'Separate sample coverage, model fit, and the limits of observational data.']
+      ['Analyze in R', 'Clean selected fields and examine completion and earnings with regression, Lasso, and PCA.'],
+      ['Audit in SQL', 'Use Python to load selected fields into SQLite, check identifiers, and export sample-membership flags and summaries.'],
+      ['Report in Excel', 'Compare SQL counts with reported R references using formulas, and organize definitions, summaries, and missingness.']
     ]
   },
   'global-beauty-spending': {

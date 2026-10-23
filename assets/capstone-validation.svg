@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-labelledby="title description">
+  <title id="title">College Scorecard SQL and Excel validation extension</title>
+  <desc id="description">SQLite sample counts of 1618, 2138, 1949 and 1727 match previously reported R counts. The audit covers 6273 unique institution IDs. The Excel workbook has four worksheets. Independent R record reconciliation remains pending.</desc>
+  <rect width="900" height="520" fill="#f3f1eb"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#19201c">
+    <text x="38" y="38" font-size="12" font-weight="700" letter-spacing="2" fill="#315f55">COLLEGE SCORECARD · VALIDATION EXTENSION</text>
+    <text x="38" y="84" font-size="35" font-weight="700" letter-spacing="-1">From analysis to validation.</text>
+    <text x="38" y="115" font-size="18" fill="#535e56">R analysis · SQLite audit · Excel reporting</text>
+    <rect x="38" y="145" width="555" height="312" rx="8" fill="#fcfbf7" stroke="#d4d8ce"/>
+    <text x="60" y="179" font-size="17" font-weight="700">Analysis sample</text>
+    <text x="429" y="179" text-anchor="end" font-size="14" fill="#535e56">R reference</text>
+    <text x="569" y="179" text-anchor="end" font-size="14" fill="#535e56">SQLite</text>
+    <path d="M60 196H569 M60 258H569 M60 320H569 M60 382H569" stroke="#d4d8ce"/>
+    <g font-size="16">
+      <text x="60" y="234">Completion with admission</text>
+      <text x="429" y="234" text-anchor="end">1,618</text>
+      <text x="569" y="234" text-anchor="end" font-weight="700" fill="#315f55">1,618</text>
+      <text x="60" y="296">Completion without admission</text>
+      <text x="429" y="296" text-anchor="end">2,138</text>
+      <text x="569" y="296" text-anchor="end" font-weight="700" fill="#315f55">2,138</text>
+      <text x="60" y="358">Earnings</text>
+      <text x="429" y="358" text-anchor="end">1,949</text>
+      <text x="569" y="358" text-anchor="end" font-weight="700" fill="#315f55">1,949</text>
+      <text x="60" y="420">PCA</text>
+      <text x="429" y="420" text-anchor="end">1,727</text>
+      <text x="569" y="420" text-anchor="end" font-weight="700" fill="#315f55">1,727</text>
+    </g>
+    <rect x="615" y="145" width="247" height="145" rx="8" fill="#e6ece4"/>
+    <text x="637" y="180" font-size="14" font-weight="700" fill="#315f55">IDENTIFIER AUDIT</text>
+    <text x="637" y="228" font-size="39" font-weight="700">6,273</text>
+    <text x="637" y="260" font-size="16">unique institution IDs</text>
+    <rect x="615" y="307" width="247" height="150" rx="8" fill="#e6ece4"/>
+    <text x="637" y="340" font-size="14" font-weight="700" fill="#315f55">EXCEL REPORT</text>
+    <text x="637" y="375" font-size="21" font-weight="700">Four worksheets</text>
+    <text x="637" y="406" font-size="15">Validation · Definitions</text>
+    <text x="637" y="431" font-size="15">Summary · Missingness</text>
+    <text x="38" y="492" font-size="15" fill="#535e56">Counts agree with reported R references. Record-level reconciliation is pending.</text>
+  </g>
+</svg>
