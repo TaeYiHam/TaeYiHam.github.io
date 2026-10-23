@@ -233,7 +233,7 @@
 </section>
 <section class="case-section" id="report" aria-labelledby="report-title">
 <h2 id="report-title">Excel reporting</h2>
-<p>I used Python and openpyxl to generate a workbook from the SQL audit exports. The committed file contains four worksheets, eight comparison formulas, and one embedded institution-type bar chart.</p>
+<p>I used Python and openpyxl to generate a workbook from the SQL audit exports. The committed file contains four worksheets and eight comparison formulas.</p>
 <div class="table-scroll" tabindex="0" aria-label="Excel report structure">
 <table class="evidence-table">
 <caption>What is inside the Excel report</caption>
@@ -254,7 +254,7 @@
 </tr>
 <tr>
 <th scope="row">Summary</th>
-<td>Institution-type counts, available-observation counts, outcome means, and a bar chart.</td>
+<td>Institution-type counts, available-observation counts, and outcome means.</td>
 </tr>
 <tr>
 <th scope="row">Missingness</th>
@@ -263,7 +263,7 @@
 </tbody>
 </table>
 </div>
-<p>The workbook structure, formula expressions, chart object, and stored QA totals were inspected in the committed file. This confirms what the file contains; a fresh desktop Excel recalculation and full visual review remain separate checks.</p>
+<p>The workbook structure, formula expressions, and stored QA totals were inspected in the committed file. This confirms what the file contains; a fresh desktop Excel recalculation and full visual review remain separate checks.</p>
 <p class="case-note">The report is a saved snapshot. To refresh it, rerun the SQL audit and regenerate the workbook. Its R reference counts and verification note require review after a source change; workbook generation does not run the R-to-SQL ID comparison.</p>
 </section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
@@ -287,7 +287,7 @@
 </li>
 <li>
 <strong>Report in Excel</strong>
-<span>Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, summaries, and an institution-type chart.</span>
+<span>Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, and summaries.</span>
 </li>
 </ol>
 </details>
