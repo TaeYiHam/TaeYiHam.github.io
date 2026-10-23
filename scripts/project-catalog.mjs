@@ -8,7 +8,7 @@ export const catalog = {
     image: 'capstone-validation.svg',
     description: 'Analyzing college outcomes in R, auditing sample selection in SQLite, and organizing validation results in Excel.',
     proof: '4 sample counts reproduced',
-    proofContext: '6,273 records audited · Excel report with formulas and chart',
+    proofContext: '6,273 records audited · Excel report with comparison formulas',
     relevance: 'Data validation · Statistical analysis · Reporting',
     tools: 'R · SQL (SQLite) · Excel · Python',
     featured: true,
@@ -19,7 +19,7 @@ export const catalog = {
     workflow: [
       ['Analyze in R', 'Clean selected fields and examine completion and earnings with regression, Lasso, and PCA.'],
       ['Audit in SQL', 'Use Python to load selected fields into SQLite, check identifiers, and export sample-membership flags and summaries.'],
-      ['Report in Excel', 'Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, summaries, and an institution-type chart.']
+      ['Report in Excel', 'Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, and summaries.']
     ]
   },
   'global-beauty-spending': {
