@@ -11,7 +11,7 @@
 <meta property="og:title" content="Higher Education Outcomes Analysis — Tae Yi Ham">
 <meta property="og:description" content="Examining how college characteristics relate to completion and earnings, and how missing data change which institutions are represented.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/higher-education-outcomes.html">
-<link rel="stylesheet" href="../styles.css?v=20261023">
+<link rel="stylesheet" href="../styles.css?v=20261023b">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -52,12 +52,12 @@
 <details class="toc-mobile">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
-<a href="#contribution">My work</a>
-<a href="#data">Data and sample</a>
+<a href="#contribution">My contribution</a>
 <a href="#findings">Findings and evidence</a>
+<a href="#question">The question</a>
+<a href="#data">Data and sample</a>
 <a href="#scope">Interpretation and next steps</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -82,34 +82,9 @@
 <dd>70.3%</dd>
 </div>
 </dl>
-<section class="case-section" id="workflow">
-<h2>How I approached it</h2>
-<ol class="workflow">
-<li>
-<strong>Prepare</strong>
-<span>Convert suppressed values to missing data and define institution groups.</span>
-</li>
-<li>
-<strong>Compare</strong>
-<span>Track complete-case samples and compare regression specifications.</span>
-</li>
-<li>
-<strong>Interpret</strong>
-<span>Separate sample coverage, model fit, and the limits of observational data.</span>
-</li>
-</ol>
-</section>
-<section class="case-section" id="question" aria-labelledby="question-title">
-<h2 id="question-title">The question</h2>
-<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings?</p>
-</section>
 <section class="case-section" id="contribution" aria-labelledby="contribution-title">
-<h2 id="contribution-title">My work</h2>
+<h2 id="contribution-title">My contribution</h2>
 <p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared completion samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA.</p>
-</section>
-<section class="case-section" id="data" aria-labelledby="data-title">
-<h2 id="data-title">Data and sample</h2>
-<p>The source contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. Admission rate was missing for 69.6% of the source.</p>
 </section>
 <section class="case-section" id="findings" aria-labelledby="findings-title">
 <h2 id="findings-title">Findings and evidence</h2>
@@ -135,45 +110,72 @@
 </div>
 <div class="table-scroll" tabindex="0" aria-label="Model evidence summary">
 <table class="evidence-table">
-<caption>Documented model results · Weekly Updates #5 and #6</caption>
+<caption>Regression summary · Weekly Updates #5 and #6</caption>
 <thead>
 <tr>
-<th scope="col">Analysis</th>
+<th scope="col">Model</th>
 <th scope="col">Complete cases</th>
-<th scope="col">Reported result</th>
+<th scope="col">R²</th>
+<th scope="col">Adjusted R²</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th scope="row">Completion regression</th>
+<th scope="row">Completion</th>
 <td>1,618</td>
-<td>R² 0.4834</td>
+<td>0.4834</td>
+<td>0.4815</td>
 </tr>
 <tr>
 <th scope="row">Completion without admission rate</th>
 <td>2,138</td>
-<td>Adjusted R² 0.4082</td>
+<td>Not listed</td>
+<td>0.4082</td>
 </tr>
 <tr>
-<th scope="row">Earnings regression</th>
+<th scope="row">Earnings</th>
 <td>1,949</td>
-<td>R² 0.5053</td>
-</tr>
-<tr>
-<th scope="row">Standardized PCA</th>
-<td>1,727</td>
-<td>First two PCs: 70.3% variance</td>
+<td>0.5053</td>
+<td>Not listed</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p class="case-note">R² values describe in-sample fit. Different complete-case samples prevent a controlled comparison of the two completion specifications.</p>
+<p class="case-note">R² and adjusted R² are shown separately. “Not listed” means the value is not included in this portfolio summary. Different complete-case samples prevent a controlled comparison of the two completion specifications. These are in-sample results.</p>
+</section>
+<section class="case-section" id="question" aria-labelledby="question-title">
+<h2 id="question-title">The question</h2>
+<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings?</p>
+</section>
+<section class="case-section" id="data" aria-labelledby="data-title">
+<h2 id="data-title">Data and sample</h2>
+<p>The source contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. Admission rate was missing for 69.6% of the source.</p>
 </section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
 <h2 id="scope-title">Interpretation and next steps</h2>
 <p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization. A useful comparison needs both sample coverage and predictive evaluation. Planned work includes comparing Random Forest, linear regression, and Lasso on a common sample and evaluation procedure, followed by a dashboard.</p>
 <p class="case-note">Results documented in my Weekly Updates #5 and #6. This project is ongoing; the source repository is private.</p>
 </section>
+<details class="case-section workflow-details" id="workflow">
+<summary>
+<h2>Analysis workflow</h2>
+<span>View the three steps</span>
+</summary>
+<ol class="workflow">
+<li>
+<strong>Prepare</strong>
+<span>Convert suppressed values to missing data and define institution groups.</span>
+</li>
+<li>
+<strong>Compare</strong>
+<span>Track complete-case samples and compare regression specifications.</span>
+</li>
+<li>
+<strong>Interpret</strong>
+<span>Separate sample coverage, model fit, and the limits of observational data.</span>
+</li>
+</ol>
+</details>
 <section class="case-section" id="application">
 <h2>Why this work matters</h2>
 <div class="application-note">
@@ -190,12 +192,12 @@
 </article>
 <nav class="contents" aria-label="On this page">
 <div class="kicker">On this page</div>
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
-<a href="#contribution">My work</a>
-<a href="#data">Data and sample</a>
+<a href="#contribution">My contribution</a>
 <a href="#findings">Findings and evidence</a>
+<a href="#question">The question</a>
+<a href="#data">Data and sample</a>
 <a href="#scope">Interpretation and next steps</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -224,7 +226,7 @@
 </div>
 </footer>
 </div>
-<script src="../script.js?v=20261023" defer>
+<script src="../script.js?v=20261023b" defer>
 </script>
 </body>
 </html>

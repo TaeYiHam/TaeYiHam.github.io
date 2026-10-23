@@ -11,7 +11,7 @@
 <meta property="og:title" content="Global Beauty Spending Analysis — Tae Yi Ham">
 <meta property="og:description" content="An R Shiny project exploring beauty spending, economic development, and gender-related indicators across 50 countries.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/global-beauty-spending.html">
-<link rel="stylesheet" href="../styles.css?v=20261023">
+<link rel="stylesheet" href="../styles.css?v=20261023b">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -53,13 +53,13 @@
 <details class="toc-mobile">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
-<a href="#contribution">My work</a>
-<a href="#method">A closer look at the method</a>
+<a href="#contribution">My contribution</a>
 <a href="#findings">Findings and evidence</a>
 <a href="#explorer">Explore the data</a>
+<a href="#question">The question</a>
+<a href="#method">A closer look at the method</a>
 <a href="#scope">Data and interpretation</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -84,53 +84,9 @@
 <dd>2</dd>
 </div>
 </dl>
-<section class="case-section" id="workflow">
-<h2>How I approached it</h2>
-<ol class="workflow">
-<li>
-<strong>Integrate</strong>
-<span>Combine socioeconomic indicators and secondary beauty-spending estimates.</span>
-</li>
-<li>
-<strong>Explore</strong>
-<span>Compare regions, indicators, and spending definitions in R Shiny.</span>
-</li>
-<li>
-<strong>Communicate</strong>
-<span>Explain the patterns alongside source comparability and interpretation limits.</span>
-</li>
-</ol>
-</section>
-<section class="case-section" id="question" aria-labelledby="question-title">
-<h2 id="question-title">The question</h2>
-<p>Do countries with similar levels of economic development and gender equality still differ in beauty spending, and what regional patterns appear?</p>
-</section>
 <section class="case-section" id="contribution" aria-labelledby="contribution-title">
-<h2 id="contribution-title">My work</h2>
+<h2 id="contribution-title">My contribution</h2>
 <p>Integrated country-level socioeconomic indicators and beauty-spending estimates. Built an R Shiny dashboard with regional filters, scatter plots, trend lines, Pearson correlations, box plots, and a bubble-chart view.</p>
-</section>
-<section class="case-section" id="method" aria-labelledby="method-title">
-<h2 id="method-title">A closer look at the method</h2>
-<p>The R Shiny app filters the same country-level dataset before updating its charts and statistics. The code below shows the preserved complete-case check used for the selected correlation.</p>
-<details class="code-evidence">
-<summary>Inspect the R correlation calculation</summary>
-<pre>
-<code>plot_data &lt;- filtered_data()
-complete_rows &lt;- complete.cases(
-  plot_data[[input$xvar]], plot_data[[input$yvar]]
-)
-
-if (sum(complete_rows) &lt; 3) {
-  return("Correlation: not enough complete observations")
-}
-
-cor(
-  plot_data[[input$xvar]][complete_rows],
-  plot_data[[input$yvar]][complete_rows]
-)</code>
-</pre>
-<p class="case-note">Excerpt from the public app.R. The browser preview below is a separate implementation using the same project CSV.</p>
-</details>
 </section>
 <section class="case-section" id="findings" aria-labelledby="findings-title">
 <h2 id="findings-title">Findings and evidence</h2>
@@ -193,11 +149,58 @@ cor(
 <p>Enable JavaScript to use the preview, or download the project CSV in Materials.</p>
 </noscript>
 </section>
+<section class="case-section" id="question" aria-labelledby="question-title">
+<h2 id="question-title">The question</h2>
+<p>Do countries with similar levels of economic development and gender equality still differ in beauty spending, and what regional patterns appear?</p>
+</section>
+<section class="case-section" id="method" aria-labelledby="method-title">
+<h2 id="method-title">A closer look at the method</h2>
+<p>The R Shiny app filters the same country-level dataset before updating its charts and statistics. The code below shows the preserved complete-case check used for the selected correlation.</p>
+<details class="code-evidence">
+<summary>Inspect the R correlation calculation</summary>
+<pre>
+<code>plot_data &lt;- filtered_data()
+complete_rows &lt;- complete.cases(
+  plot_data[[input$xvar]], plot_data[[input$yvar]]
+)
+
+if (sum(complete_rows) &lt; 3) {
+  return("Correlation: not enough complete observations")
+}
+
+cor(
+  plot_data[[input$xvar]][complete_rows],
+  plot_data[[input$yvar]][complete_rows]
+)</code>
+</pre>
+<p class="case-note">Excerpt from the public app.R. The browser preview below is a separate implementation using the same project CSV.</p>
+</details>
+</section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
 <h2 id="scope-title">Data and interpretation</h2>
 <p>The 2023 dataset combines GDP per capita, the Gender Inequality Index, female labor-force participation, and two spending measures. Socioeconomic indicators were drawn from World Bank, UNDP, and ILOSTAT sources. Beauty-spending values were manually compiled from secondary market reports and are project-level estimates rather than a standardized official dataset.</p>
 <p>The sample is descriptive and does not establish causation or market profitability. Use it to identify questions for further research, then validate local demand, prices, distribution costs, and source comparability before recommending market entry or pricing.</p>
 </section>
+<details class="case-section workflow-details" id="workflow">
+<summary>
+<h2>Analysis workflow</h2>
+<span>View the three steps</span>
+</summary>
+<ol class="workflow">
+<li>
+<strong>Integrate</strong>
+<span>Combine socioeconomic indicators and secondary beauty-spending estimates.</span>
+</li>
+<li>
+<strong>Explore</strong>
+<span>Compare regions, indicators, and spending definitions in R Shiny.</span>
+</li>
+<li>
+<strong>Communicate</strong>
+<span>Explain the patterns alongside source comparability and interpretation limits.</span>
+</li>
+</ol>
+</details>
 <section class="case-section" id="application">
 <h2>Why this work matters</h2>
 <div class="application-note">
@@ -215,13 +218,13 @@ cor(
 </article>
 <nav class="contents" aria-label="On this page">
 <div class="kicker">On this page</div>
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
-<a href="#contribution">My work</a>
-<a href="#method">A closer look at the method</a>
+<a href="#contribution">My contribution</a>
 <a href="#findings">Findings and evidence</a>
 <a href="#explorer">Explore the data</a>
+<a href="#question">The question</a>
+<a href="#method">A closer look at the method</a>
 <a href="#scope">Data and interpretation</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -250,9 +253,9 @@ cor(
 </div>
 </footer>
 </div>
-<script src="../script.js?v=20261023" defer>
+<script src="../script.js?v=20261023b" defer>
 </script>
-<script src="../explorer.js?v=20261023" type="module">
+<script src="../explorer.js?v=20261023b" type="module">
 </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <meta property="og:title" content="Spotify Music Graph Analysis — Tae Yi Ham">
 <meta property="og:description" content="Transforming music records into a Neo4j graph to explore relationships among tracks, artists, albums, and genres.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/spotify-music-graph.html">
-<link rel="stylesheet" href="../styles.css?v=20261023">
+<link rel="stylesheet" href="../styles.css?v=20261023b">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -53,12 +53,12 @@
 <details class="toc-mobile">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
 <a href="#contribution">My contribution</a>
-<a href="#model">From records to relationships</a>
 <a href="#findings">Queries and evidence</a>
+<a href="#question">The question</a>
+<a href="#model">From records to relationships</a>
 <a href="#scope">Documentation and limits</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -83,30 +83,26 @@
 <dd>4</dd>
 </div>
 </dl>
-<section class="case-section" id="workflow">
-<h2>How I approached it</h2>
-<ol class="workflow">
-<li>
-<strong>Prepare</strong>
-<span>Handle duplicate track IDs and split records with multiple artists.</span>
-</li>
-<li>
-<strong>Model</strong>
-<span>Organize four entity types and define their relationships in Neo4j.</span>
-</li>
-<li>
-<strong>Query</strong>
-<span>Explore seven query tasks and document repeated runtime trials.</span>
-</li>
-</ol>
+<section class="case-section" id="contribution" aria-labelledby="contribution-title">
+<h2 id="contribution-title">My contribution</h2>
+<p>I carried out the majority of the project work: preparing data in Python, organizing track, artist, album, and genre records for Neo4j, designing PERFORMED_BY, BELONGS_TO, and HAS_GENRE relationships, and analyzing the graph through seven Cypher query tasks.</p>
+</section>
+<section class="case-section" id="findings" aria-labelledby="findings-title">
+<h2 id="findings-title">Queries and evidence</h2>
+<p>Queries explored popular tracks, title keywords, specific artists, upbeat/happy tracks, average popularity by genre, and top-genre counts. Repeating each query ten times documented runtime under the project setup.</p>
+<div class="gallery">
+<figure>
+<a class="chart-link" href="../assets/project-visual-3.svg" target="_blank" rel="noopener noreferrer" aria-label="Open chart at full size">
+<img src="../assets/project-visual-3.svg" alt="Seven Cypher query tasks and average runtimes from ten trials each" loading="lazy" decoding="async">
+<span class="chart-hint">Open full size ↗</span>
+</a>
+<figcaption>Tasks and runtimes documented in the original team presentation.</figcaption>
+</figure>
+</div>
 </section>
 <section class="case-section" id="question" aria-labelledby="question-title">
 <h2 id="question-title">The question</h2>
 <p>How can a graph model make relationships in music data easier to explore than a flat table?</p>
-</section>
-<section class="case-section" id="contribution" aria-labelledby="contribution-title">
-<h2 id="contribution-title">My contribution</h2>
-<p>I carried out the majority of the project work: preparing data in Python, organizing track, artist, album, and genre records for Neo4j, designing PERFORMED_BY, BELONGS_TO, and HAS_GENRE relationships, and analyzing the graph through seven Cypher query tasks.</p>
 </section>
 <section class="case-section" id="model" aria-labelledby="model-title">
 <h2 id="model-title">From records to relationships</h2>
@@ -122,23 +118,30 @@ ORDER BY avg_popularity DESC;</code>
 <p class="case-note">Task 6, transcribed from the original presentation and preserved in the public query file. This example groups track popularity by linked genre; it does not measure listening demand.</p>
 </details>
 </section>
-<section class="case-section" id="findings" aria-labelledby="findings-title">
-<h2 id="findings-title">Queries and evidence</h2>
-<p>Queries explored popular tracks, title keywords, specific artists, upbeat/happy tracks, average popularity by genre, and top-genre counts. Repeating each query ten times documented runtime under the project setup.</p>
-<div class="gallery">
-<figure>
-<a class="chart-link" href="../assets/project-visual-3.svg" target="_blank" rel="noopener noreferrer" aria-label="Open chart at full size">
-<img src="../assets/project-visual-3.svg" alt="Seven Cypher query tasks and average runtimes from ten trials each" loading="lazy" decoding="async">
-<span class="chart-hint">Open full size ↗</span>
-</a>
-<figcaption>Tasks and runtimes documented in the original team presentation.</figcaption>
-</figure>
-</div>
-</section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
 <h2 id="scope-title">Documentation and limits</h2>
 <p>The repository preserves the original presentation and Cypher queries transcribed from screenshots. The original Python scripts and CSV files are unavailable, so it documents the workflow rather than providing a complete reproducible pipeline. Runtime measurements are not a SQL comparison or a production-scale benchmark.</p>
 </section>
+<details class="case-section workflow-details" id="workflow">
+<summary>
+<h2>Analysis workflow</h2>
+<span>View the three steps</span>
+</summary>
+<ol class="workflow">
+<li>
+<strong>Prepare</strong>
+<span>Handle duplicate track IDs and split records with multiple artists.</span>
+</li>
+<li>
+<strong>Model</strong>
+<span>Organize four entity types and define their relationships in Neo4j.</span>
+</li>
+<li>
+<strong>Query</strong>
+<span>Explore seven query tasks and document repeated runtime trials.</span>
+</li>
+</ol>
+</details>
 <section class="case-section" id="application">
 <h2>Why this work matters</h2>
 <div class="application-note">
@@ -157,12 +160,12 @@ ORDER BY avg_popularity DESC;</code>
 </article>
 <nav class="contents" aria-label="On this page">
 <div class="kicker">On this page</div>
-<a href="#workflow">Approach</a>
-<a href="#question">The question</a>
 <a href="#contribution">My contribution</a>
-<a href="#model">From records to relationships</a>
 <a href="#findings">Queries and evidence</a>
+<a href="#question">The question</a>
+<a href="#model">From records to relationships</a>
 <a href="#scope">Documentation and limits</a>
+<a href="#workflow">Analysis workflow</a>
 <a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
@@ -191,7 +194,7 @@ ORDER BY avg_popularity DESC;</code>
 </div>
 </footer>
 </div>
-<script src="../script.js?v=20261023" defer>
+<script src="../script.js?v=20261023b" defer>
 </script>
 </body>
 </html>
