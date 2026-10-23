@@ -7,7 +7,7 @@ export const catalog = {
     status: 'In progress',
     image: 'capstone-validation.svg',
     description: 'Analyzing college outcomes in R, auditing sample selection in SQLite, and organizing validation results in Excel.',
-    proof: '4 sample counts reproduced',
+    proof: '4 R samples matched in SQL',
     proofContext: '6,273 records audited · Excel report with comparison formulas',
     relevance: 'Data validation · Statistical analysis · Reporting',
     tools: 'R · SQL (SQLite) · Excel · Python',
