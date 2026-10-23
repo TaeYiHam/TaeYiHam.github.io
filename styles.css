@@ -248,7 +248,7 @@ h2[tabindex="-1"]:focus {
 .profile-facts {
   grid-column:1/-1;
   display:grid;
-  grid-template-columns:1.6fr 1fr 1fr;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
   gap:30px;
   margin:4px 0 0;
   padding:24px 0;
@@ -1039,9 +1039,7 @@ footer {
   padding:22px 0;
   margin:8px 0 0
 }
-.profile-facts>div:first-child {
-  grid-column:1/-1
-}
+
 .profile-facts dd {
   font-size:12px
 }
