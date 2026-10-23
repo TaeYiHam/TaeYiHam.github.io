@@ -67,12 +67,12 @@ export const catalog = {
     ]
   },
   'coca-cola-pepsi-sentiment': {
-    shortTitle: 'Coca-Cola & Pepsi', category: 'Sentiment analysis', date: 'Fall 2025',
+    shortTitle: 'Coca-Cola & Pepsi', category: 'Sentiment analysis', date: 'Fall 2025', image: 'sentiment-thumb.svg',
     tools: 'Python · Sentiment analysis · Streamlit', readingTime: '2 min read',
     resources: [['View project repository', 'https://github.com/TaeYiHam/Coca-Pepsi-Stock-Sentiment-Analysis']]
   },
   'world-happiness': {
-    shortTitle: 'World Happiness Factors', category: 'Statistical research', date: 'Fall 2023',
+    shortTitle: 'World Happiness Factors', category: 'Statistical research', date: 'Fall 2023', image: 'happiness-thumb.svg',
     tools: 'R · Correlation · Regression', readingTime: '2 min read',
     resources: [['View project repository', 'https://github.com/TaeYiHam/World-Happiness-Analysis']]
   }
