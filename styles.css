@@ -189,6 +189,12 @@ h2[tabindex="-1"]:focus {
   color:var(--accent);
   margin-bottom:0
 }
+.auth-line {
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+  margin:8px 0 0
+}
 .actions,.material-links {
   display:flex;
   gap:12px;
@@ -1136,6 +1142,10 @@ footer {
 }
 .target-line {
   font-size:12px;
+  margin:0
+}
+.auth-line {
+  font-size:14px;
   margin:0
 }
 .hero .actions {

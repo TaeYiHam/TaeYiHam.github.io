@@ -13,7 +13,7 @@ export function buildHome(root) {
     return `<article class="project${index === 0 ? ' wide' : ''}">${index === 0 ? copy + visual : visual + copy}</article>`;
   }).join('\n');
   const rank = {'Fall 2026':5,'Spring 2026':4,'Fall 2025':3,'Summer 2025':2,'Fall 2023':1};
-  const archive = [...projects].sort((a,b) => rank[catalog[b.slug].date] - rank[catalog[a.slug].date]).map(project => {
+  const archive = projects.filter(project => !catalog[project.slug].featured).sort((a,b) => rank[catalog[b.slug].date] - rank[catalog[a.slug].date]).map(project => {
     const info = catalog[project.slug];
     return `<a class="journey-row" href="projects/${project.slug}.html"><span>${info.date}</span><img class="journey-thumb" src="assets/${info.image}" alt="" width="90" height="52" loading="lazy" decoding="async"><strong>${escape(info.shortTitle)}</strong><span>${escape(info.tools)}</span><b aria-hidden="true">↗</b></a>`;
   }).join('\n');
