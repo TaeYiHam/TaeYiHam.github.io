@@ -446,7 +446,7 @@ h2[tabindex="-1"]:focus {
 
 .experience-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:40px
 }
 .experience-grid article {
