@@ -20,7 +20,7 @@ body {
   margin:0;
   background:var(--bg);
   color:var(--ink);
-  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:"IBM Plex Sans",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
   -webkit-font-smoothing:antialiased
 }
@@ -47,7 +47,7 @@ p {
 }
 h1,h2,h3 {
   line-height:1.12;
-  letter-spacing:-.045em
+  letter-spacing:-.03em
 }
 h2 {
   font-size:clamp(32px,3.5vw,46px);
@@ -119,7 +119,7 @@ h2[tabindex="-1"]:focus {
 .brand {
   font-size:18px;
   font-weight:750;
-  letter-spacing:-.04em;
+  letter-spacing:-.03em;
   white-space:nowrap;
   padding:14px 0
 }
@@ -173,7 +173,7 @@ h2[tabindex="-1"]:focus {
 .hero h1 {
   font-size:clamp(52px,5.5vw,76px);
   line-height:1.01;
-  letter-spacing:-.055em;
+  letter-spacing:-.03em;
   margin:18px 0 22px
 }
 .intro {
@@ -188,6 +188,12 @@ h2[tabindex="-1"]:focus {
   max-width:580px;
   color:var(--accent);
   margin-bottom:0
+}
+.auth-line {
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink);
+  margin:8px 0 0
 }
 .actions,.material-links {
   display:flex;
@@ -446,7 +452,7 @@ h2[tabindex="-1"]:focus {
 
 .experience-grid {
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:40px
 }
 .experience-grid article {
@@ -670,7 +676,7 @@ footer {
 .evidence dd {
   font-size:30px;
   line-height:1.2;
-  letter-spacing:-.045em;
+  letter-spacing:-.03em;
   margin:0 0 8px
 }
 .evidence dt {
@@ -718,7 +724,7 @@ footer {
 }
 .chart-hint {
   display:block;
-  font-size:10px;
+  font-size:12px;
   text-align:right;
   color:var(--accent);
   padding:10px 0 0
@@ -1103,7 +1109,7 @@ footer {
 .hero .eyebrow {
   grid-column:1;
   grid-row:1;
-  font-size:10px
+  font-size:12px
 }
 .hero h1 {
   grid-column:1;
@@ -1138,6 +1144,10 @@ footer {
   font-size:12px;
   margin:0
 }
+.auth-line {
+  font-size:14px;
+  margin:0
+}
 .hero .actions {
   margin-top:0;
   gap:10px
@@ -1157,7 +1167,7 @@ footer {
   font-size:12px
 }
 .profile-facts dt {
-  font-size:9px
+  font-size:11px
 }
 
 .section {
@@ -1250,7 +1260,7 @@ footer {
   flex-wrap:wrap
 }
 .footer-bottom {
-  font-size:10px;
+  font-size:12px;
   align-items:center
 }
 .footer-bottom span {
@@ -1278,7 +1288,7 @@ footer {
   overflow-wrap:break-word
 }
 .case-header .kicker {
-  font-size:10px
+  font-size:12px
 }
 .case-header .summary {
   font-size:16px

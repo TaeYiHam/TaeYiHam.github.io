@@ -16,6 +16,9 @@
 <meta property="og:title" content="Higher Education Outcomes Analysis — Tae Yi Ham">
 <meta property="og:description" content="An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/higher-education-outcomes.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../styles.css?v=20261023-polish">
 </head>
 <body>
@@ -59,6 +62,7 @@
 <details class="toc-mobile">
 <summary>On this page</summary>
 <nav aria-label="Page sections">
+<a href="#application">Business relevance</a>
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
 <a href="#contribution">My contribution</a>
@@ -67,7 +71,6 @@
 <a href="#report">Excel reporting</a>
 <a href="#scope">Interpretation and next steps</a>
 <a href="#workflow">Analysis workflow</a>
-<a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
 </details>
@@ -87,17 +90,24 @@
 <dd>+520</dd>
 </div>
 <div>
-<dt>PCA variance in the first two components</dt>
+<dt>of predictor variation captured by two PCA components</dt>
 <dd>70.3%</dd>
 </div>
 </dl>
+<section class="case-section" id="application">
+<h2>Why this work matters</h2>
+<div class="application-note">
+<span class="kicker">Business &amp; data analytics</span>
+<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite audit and Excel report show how to turn source data into repeatable QA checks and readable summaries. The same checks apply before a planning, pricing, or operations report is used.</p>
+</div>
+</section>
 <section class="case-section" id="question" aria-labelledby="question-title">
 <h2 id="question-title">The question</h2>
 <p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings?</p>
 </section>
 <section class="case-section" id="data" aria-labelledby="data-title">
 <h2 id="data-title">Data and sample</h2>
-<p>The audited source snapshot contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. The saved SQL missingness output reports admission rate missing for 69.55% of the source.</p>
+<p>The audited source snapshot contains 6,273 institution records. Suppressed and non-numeric entries were treated as missing. Complete-case counts, meaning institutions with no missing values in a model’s fields, vary: 1,618 for the completion model, 2,138 for the model excluding admission rate, 1,949 for earnings, and 1,727 for PCA. The saved SQL missingness output reports admission rate missing for 69.55% of the source.</p>
 </section>
 <section class="case-section" id="contribution" aria-labelledby="contribution-title">
 <h2 id="contribution-title">My contribution</h2>
@@ -105,7 +115,7 @@
 </section>
 <section class="case-section" id="findings" aria-labelledby="findings-title">
 <h2 id="findings-title">Findings and evidence</h2>
-<p>Cost of attendance was positively associated with completion and earnings; Pell Grant participation was negatively associated with both, conditional on the other included predictors. Completion R² was 0.4834 and earnings R² was 0.5053. These describe in-sample fit, not held-out prediction.</p>
+<p>Cost of attendance was positively associated with completion and earnings; Pell Grant participation was negatively associated with both, conditional on the other included predictors. Completion R² was 0.4834 and earnings R² was 0.5053, so each model accounted for roughly half of the variation in its outcome. These describe in-sample fit, not held-out prediction.</p>
 <figure class="spec-toggle" data-spec-toggle data-active="with">
 <div class="spec-head">
 <span class="kicker">Completion model · two specifications</span>
@@ -144,11 +154,11 @@
 </p>
 <figcaption>Bars are scaled to the 6,273 audited institution records. The two models use different samples, so this is not a controlled comparison.</figcaption>
 </figure>
-<p>Adjusted completion R² was 0.4815 with admission rate and 0.4082 without it. Lasso retained all predictor terms at the minimum-error penalty. In PCA, PC1 contrasted cost with admission rates and Pell participation; PC2 was dominated by enrollment. Institution types overlap in the plot.</p>
+<p>Adjusted completion R² was 0.4815 with admission rate and 0.4082 without it. Lasso, a method that drops predictors adding little to the model, retained all predictor terms at the minimum-error penalty. In PCA, which condenses the four predictors into a few summary dimensions, PC1 contrasted cost with admission rates and Pell participation; PC2 was dominated by enrollment. Institution types overlap in the plot.</p>
 <div class="gallery">
 <figure>
 <a class="chart-link" href="../assets/capstone-pca.png" target="_blank" rel="noopener noreferrer" aria-label="Open chart at full size">
-<img src="../assets/capstone-pca.png" alt="PCA of 1,727 institutions with PC1 explaining 43.5 percent and PC2 explaining 26.8 percent of standardized predictor variance" loading="lazy" decoding="async">
+<img src="../assets/capstone-pca.png" width="1344" height="960" alt="PCA of 1,727 institutions with PC1 explaining 43.5 percent and PC2 explaining 26.8 percent of standardized predictor variance" loading="lazy" decoding="async">
 <span class="chart-hint">Open full size ↗</span>
 </a>
 <figcaption>Original capstone figure. The four predictors are admission rate, cost of attendance, Pell participation, and enrollment.</figcaption>
@@ -288,13 +298,6 @@
 </li>
 </ol>
 </details>
-<section class="case-section" id="application">
-<h2>Why this work matters</h2>
-<div class="application-note">
-<span class="kicker">Business &amp; data analytics</span>
-<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite audit and Excel report show how to turn source data into repeatable QA checks and readable summaries—tasks relevant to business, pricing, and operations analytics.</p>
-</div>
-</section>
 <section class="case-section" id="materials">
 <h2>Materials</h2>
 <div class="material-links">
@@ -304,6 +307,7 @@
 </article>
 <nav class="contents" aria-label="On this page">
 <div class="kicker">On this page</div>
+<a href="#application">Business relevance</a>
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
 <a href="#contribution">My contribution</a>
@@ -312,7 +316,6 @@
 <a href="#report">Excel reporting</a>
 <a href="#scope">Interpretation and next steps</a>
 <a href="#workflow">Analysis workflow</a>
-<a href="#application">Business relevance</a>
 <a href="#materials">Materials</a>
 </nav>
 </div>
