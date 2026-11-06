@@ -718,7 +718,7 @@ footer {
 }
 .chart-hint {
   display:block;
-  font-size:10px;
+  font-size:12px;
   text-align:right;
   color:var(--accent);
   padding:10px 0 0
@@ -1103,7 +1103,7 @@ footer {
 .hero .eyebrow {
   grid-column:1;
   grid-row:1;
-  font-size:10px
+  font-size:12px
 }
 .hero h1 {
   grid-column:1;
@@ -1157,7 +1157,7 @@ footer {
   font-size:12px
 }
 .profile-facts dt {
-  font-size:9px
+  font-size:11px
 }
 
 .section {
@@ -1250,7 +1250,7 @@ footer {
   flex-wrap:wrap
 }
 .footer-bottom {
-  font-size:10px;
+  font-size:12px;
   align-items:center
 }
 .footer-bottom span {
@@ -1278,7 +1278,7 @@ footer {
   overflow-wrap:break-word
 }
 .case-header .kicker {
-  font-size:10px
+  font-size:12px
 }
 .case-header .summary {
   font-size:16px
