@@ -3,29 +3,29 @@ export const projects = [
   {
     "slug": "higher-education-outcomes",
     "title": "Higher Education Outcomes Analysis",
-    "meta": "Ongoing capstone · Fall 2026",
-    "summary": "An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.",
-    "takeaway": "Removing admission rate from the completion model made 520 more institutions usable. Because the sample and predictors both changed, this comparison cannot isolate the effect of admission rate.",
-    "skills": "R · SQL (SQLite) · Excel · Python",
+    "meta": "Capstone · Fall 2026 · poster stage",
+    "summary": "A College Scorecard capstone that compares Linear Regression, Lasso, and Random Forest for college completion and earnings, with every R sample checked against SQLite.",
+    "takeaway": "Random Forest predicted both outcomes better than the linear models on held-out schools: test R² 0.54 vs 0.47 for completion and 0.60 vs 0.50 for earnings. Linear regression is still used to read the direction of each relationship.",
+    "skills": "R · SQL (SQLite) · Python",
     "evidence": [
       [
         "1,618",
         "completion-model institutions"
       ],
       [
-        "+520",
-        "institutions in the broader comparison"
+        "0.54",
+        "Random Forest test R² for completion (linear: 0.47)"
       ],
       [
-        "70.3%",
-        "of predictor variation captured by two PCA components"
+        "4 / 4",
+        "R samples matched exactly in SQLite"
       ]
     ],
     "sections": [
       [
         "question",
         "The question",
-        "<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings?</p>"
+        "<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings? And does Random Forest predict these outcomes better than linear models?</p>"
       ],
       [
         "data",
@@ -35,32 +35,32 @@ export const projects = [
       [
         "contribution",
         "My contribution",
-        "<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Extended the project with a Python-to-SQLite audit and an Excel report for sample-count checks, institution-type summaries, and missingness review.</p>"
+        "<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Compared Linear Regression, Lasso, and Random Forest on a shared train/test split and shared cross-validation folds. Built a Python-to-SQLite check that confirms each R sample contains the expected institutions.</p>"
+      ],
+      [
+        "models",
+        "Model comparison",
+        "<p>Linear Regression, Lasso, and Random Forest (1,000 trees) were fit on the same 80/20 train/test split and evaluated on the same 10 cross-validation folds (seed 4001). The completion model uses admission rate, cost, Pell Grant share, enrollment, and institution type. The earnings model uses completion rate, cost, Pell Grant share, median debt, and institution type.</p><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"Model comparison\"><table class=\"evidence-table\"><caption>Held-out performance · R² on the test set and averaged across 10 folds</caption><thead><tr><th scope=\"col\">Model</th><th scope=\"col\">Completion test R²</th><th scope=\"col\">Completion CV R²</th><th scope=\"col\">Earnings test R²</th><th scope=\"col\">Earnings CV R²</th></tr></thead><tbody><tr><th scope=\"row\">Linear Regression</th><td>0.4655</td><td>0.4676</td><td>0.4967</td><td>0.4980</td></tr><tr><th scope=\"row\">Lasso</th><td>0.4631</td><td>0.4677</td><td>0.4962</td><td>0.4980</td></tr><tr><th scope=\"row\">Random Forest</th><td><strong>0.5418</strong></td><td><strong>0.5298</strong></td><td><strong>0.5985</strong></td><td><strong>0.5919</strong></td></tr></tbody></table></div><p>Random Forest had a higher R² than Linear Regression in 9 of 10 folds for completion and 10 of 10 folds for earnings, so the gain is not an artifact of one lucky split. Test sets held 324 and 390 institutions.</p><h3>What drives each outcome</h3><p>For completion, the regression and Random Forest ranked predictors in the same order: cost of attendance first, then Pell Grant share. For earnings, Random Forest ranked completion rate and median debt highest, while the two methods disagreed on cost. Cost is correlated with completion rate (r = 0.61) and median debt (r = 0.56), which likely explains why its rank shifts between methods.</p>"
       ],
       [
         "findings",
-        "Findings and evidence",
+        "Regression and PCA findings",
         "<p>Cost of attendance was positively associated with completion and earnings; Pell Grant participation was negatively associated with both, conditional on the other included predictors. Completion R² was 0.4834 and earnings R² was 0.5053, so each model accounted for roughly half of the variation in its outcome. These describe in-sample fit, not held-out prediction.</p><figure class=\"spec-toggle\" data-spec-toggle data-active=\"with\"><div class=\"spec-head\"><span class=\"kicker\">Completion model · two specifications</span><div class=\"spec-buttons\" role=\"group\" aria-label=\"Choose completion-model specification\" hidden><button type=\"button\" data-spec=\"with\" aria-pressed=\"true\">With admission rate</button><button type=\"button\" data-spec=\"without\" aria-pressed=\"false\">Without admission rate</button></div></div><dl class=\"spec-rows\"><div class=\"spec-row\" data-spec-row=\"with\"><dt>With admission rate</dt><dd><span class=\"spec-bar\"><span style=\"width:25.79%\"></span></span><span class=\"spec-values\"><strong>1,618</strong> complete cases · adjusted R² <strong>0.4815</strong></span></dd></div><div class=\"spec-row\" data-spec-row=\"without\"><dt>Without admission rate</dt><dd><span class=\"spec-bar\"><span style=\"width:34.08%\"></span></span><span class=\"spec-values\"><strong>2,138</strong> complete cases · adjusted R² <strong>0.4082</strong></span></dd></div></dl><p class=\"spec-detail\" data-spec-detail aria-live=\"polite\" hidden></p><figcaption>Bars are scaled to the 6,273 audited institution records. The two models use different samples, so this is not a controlled comparison.</figcaption></figure><p>Adjusted completion R² was 0.4815 with admission rate and 0.4082 without it. Lasso, a method that drops predictors adding little to the model, retained all predictor terms at the minimum-error penalty. In PCA, which condenses the four predictors into a few summary dimensions, PC1 contrasted cost with admission rates and Pell participation; PC2 was dominated by enrollment. Institution types overlap in the plot.</p><div class=\"gallery\"><figure><a class=\"chart-link\" href=\"../assets/capstone-pca.png\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Open chart at full size\"><img src=\"../assets/capstone-pca.png\" width=\"1344\" height=\"960\" alt=\"PCA of 1,727 institutions with PC1 explaining 43.5 percent and PC2 explaining 26.8 percent of standardized predictor variance\" loading=\"lazy\" decoding=\"async\"><span class=\"chart-hint\">Open full size ↗</span></a><figcaption>Original capstone figure. The four predictors are admission rate, cost of attendance, Pell participation, and enrollment.</figcaption></figure></div><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"Model evidence summary\"><table class=\"evidence-table\"><caption>Regression summary</caption><thead><tr><th scope=\"col\">Model</th><th scope=\"col\">Complete cases</th><th scope=\"col\">R²</th><th scope=\"col\">Adjusted R²</th></tr></thead><tbody><tr><th scope=\"row\">Completion</th><td>1,618</td><td>0.4834</td><td>0.4815</td></tr><tr><th scope=\"row\">Completion without admission rate</th><td>2,138</td><td>Not listed</td><td>0.4082</td></tr><tr><th scope=\"row\">Earnings</th><td>1,949</td><td>0.5053</td><td>Not listed</td></tr></tbody></table></div>"
       ],
       [
         "validation",
         "SQL validation & sample checks",
-        "<p>The extension audits 14 selected fields from 6,273 College Scorecard records. Python normalizes suppressed and non-numeric values, loads an in-memory SQLite database, and exports identifiers, sample-membership flags, missingness, and institution-type summaries.</p><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"SQL sample-count comparison\"><table class=\"evidence-table\"><caption>Four analysis samples · SQL output and reported R counts</caption><thead><tr><th scope=\"col\">Analysis sample</th><th scope=\"col\">SQLite count</th><th scope=\"col\">Reported R count</th></tr></thead><tbody><tr><th scope=\"row\">Completion with admission</th><td>1,618</td><td>1,618</td></tr><tr><th scope=\"row\">Completion without admission</th><td>2,138</td><td>2,138</td></tr><tr><th scope=\"row\">Earnings</th><td>1,949</td><td>1,949</td></tr><tr><th scope=\"row\">PCA</th><td>1,727</td><td>1,727</td></tr></tbody></table></div><p>The saved audit has 6,273 unique, non-missing UNITIDs. All four SQL counts agree with the reported R counts. The project log also records exact R-to-SQL UNITID-set matches for all four samples, with zero IDs unique to either source.</p><h3>Repeatable checks</h3><p>The audit derives QA totals from the data rather than hard-coding them. Two synthetic-data tests cover numeric conversion and basic sample selection. A separate comparison script validates identifiers and inclusion flags, writes a reconciliation CSV, and returns a failure if any R and SQL sample differs.</p>"
-      ],
-      [
-        "report",
-        "Excel reporting",
-        "<p>I used Python and openpyxl to generate a workbook from the SQL audit exports. The committed file contains four worksheets and eight comparison formulas.</p><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"Excel report structure\"><table class=\"evidence-table\"><caption>What is inside the Excel report</caption><thead><tr><th scope=\"col\">Worksheet</th><th scope=\"col\">Purpose</th></tr></thead><tbody><tr><th scope=\"row\">Validation</th><td>Four count differences and four IF-based MATCH/REVIEW checks, plus identifier QA totals.</td></tr><tr><th scope=\"row\">Definitions</th><td>Variable definitions, missing-value rules, and fields required by each sample.</td></tr><tr><th scope=\"row\">Summary</th><td>Institution-type counts, available-observation counts, and outcome means.</td></tr><tr><th scope=\"row\">Missingness</th><td>Missing counts and percentages for the selected numeric fields and institution type.</td></tr></tbody></table></div><p>To refresh the report, rerun the SQL audit and regenerate the workbook.</p>"
+        "<p>Before reading any model result, I check that each R sample contains the institutions I expect. Python treats suppressed and non-numeric values as missing (the same rule used in R), loads the selected College Scorecard fields into an in-memory SQLite database, and rebuilds each sample with SQL.</p><div class=\"table-scroll\" tabindex=\"0\" aria-label=\"SQL sample-count comparison\"><table class=\"evidence-table\"><caption>Four analysis samples · SQL output and reported R counts</caption><thead><tr><th scope=\"col\">Analysis sample</th><th scope=\"col\">SQLite count</th><th scope=\"col\">Reported R count</th></tr></thead><tbody><tr><th scope=\"row\">Completion with admission</th><td>1,618</td><td>1,618</td></tr><tr><th scope=\"row\">Completion without admission</th><td>2,138</td><td>2,138</td></tr><tr><th scope=\"row\">Earnings</th><td>1,949</td><td>1,949</td></tr><tr><th scope=\"row\">PCA</th><td>1,727</td><td>1,727</td></tr></tbody></table></div><p>The 6,273 records have no duplicate UNITIDs. For all four samples, the set of UNITIDs exported from R is exactly the same as the set selected in SQL, not just the same count. The script writes the result to a CSV so the check can be rerun whenever the source file is refreshed.</p>"
       ],
       [
         "scope",
         "Interpretation and next steps",
-        "<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization, and R² values describe in-sample fit. Next, I plan to compare a Random Forest model on a common sample.</p><p class=\"case-note\">The source repository remains private; selected methods and aggregate results are summarized here.</p>"
+        "<p>These are institution-level associations, not causal effects or estimates for individual students. Expensive schools may simply enroll students who would do well anywhere. Only four-year institutions are covered, and missing data limit generalization. The poster will be presented on December 10, and the final report is due December 15.</p><p class=\"case-note\">The source repository remains private; selected methods and aggregate results are summarized here.</p>"
       ]
     ],
     "materials": [
       [
-        "Ask about the analysis and validation report",
+        "Ask about the analysis and model comparison",
         "mailto:hamtaeyi0416@gmail.com?subject=Higher%20Education%20project%20details"
       ]
     ]

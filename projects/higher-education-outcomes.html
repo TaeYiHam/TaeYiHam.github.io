@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f3f1eb">
 <title>Higher Education Outcomes Analysis — Tae Yi Ham</title>
-<meta name="description" content="An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.">
+<meta name="description" content="A College Scorecard capstone that compares Linear Regression, Lasso, and Random Forest for college completion and earnings, with every R sample checked against SQLite.">
 <meta property="og:type" content="article">
 <meta property="og:image" content="https://taeyiham.github.io/og-card.png">
 <meta property="og:image:width" content="1200">
@@ -14,12 +14,12 @@
 <link rel="icon" type="image/png" href="../favicon.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:title" content="Higher Education Outcomes Analysis — Tae Yi Ham">
-<meta property="og:description" content="An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.">
+<meta property="og:description" content="A College Scorecard capstone that compares Linear Regression, Lasso, and Random Forest for college completion and earnings, with every R sample checked against SQLite.">
 <link rel="canonical" href="https://taeyiham.github.io/projects/higher-education-outcomes.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../styles.css?v=20261023-polish">
+<link rel="stylesheet" href="../styles.css?v=20261113-capstone">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -47,16 +47,16 @@
 </div>
 <header class="case-header">
 <div class="case-meta">
-<span class="kicker">Ongoing capstone · Fall 2026</span>
+<span class="kicker">Capstone · Fall 2026 · poster stage</span>
 <span class="reading-time">5 min read</span>
 </div>
 <h1>Higher Education Outcomes Analysis</h1>
-<p class="summary">An ongoing College Scorecard analysis combining R statistical models, a SQLite data-quality audit, and an Excel validation report.</p>
-<div class="tags">R · SQL (SQLite) · Excel · Python</div>
+<p class="summary">A College Scorecard capstone that compares Linear Regression, Lasso, and Random Forest for college completion and earnings, with every R sample checked against SQLite.</p>
+<div class="tags">R · SQL (SQLite) · Python</div>
 <div class="resource-strip">
-<a class="btn dark" href="#validation">See SQL validation ↓</a>
-<a class="btn" href="#report">Inspect Excel reporting ↓</a>
-<a class="btn" href="#findings">See model results ↓</a>
+<a class="btn dark" href="#models">See model comparison ↓</a>
+<a class="btn" href="#validation">See SQL validation ↓</a>
+<a class="btn" href="#findings">See regression findings ↓</a>
 </div>
 </header>
 <details class="toc-mobile">
@@ -66,9 +66,9 @@
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
 <a href="#contribution">My contribution</a>
-<a href="#findings">Findings and evidence</a>
+<a href="#models">Model comparison</a>
+<a href="#findings">Regression and PCA findings</a>
 <a href="#validation">SQL validation & sample checks</a>
-<a href="#report">Excel reporting</a>
 <a href="#scope">Interpretation and next steps</a>
 <a href="#workflow">Analysis workflow</a>
 <a href="#materials">Materials</a>
@@ -78,7 +78,7 @@
 <article>
 <aside class="reading-note" aria-label="Project takeaway">
 <span class="kicker">At a glance</span>
-<p>Removing admission rate from the completion model made 520 more institutions usable. Because the sample and predictors both changed, this comparison cannot isolate the effect of admission rate.</p>
+<p>Random Forest predicted both outcomes better than the linear models on held-out schools: test R² 0.54 vs 0.47 for completion and 0.60 vs 0.50 for earnings. Linear regression is still used to read the direction of each relationship.</p>
 </aside>
 <dl class="evidence">
 <div>
@@ -86,24 +86,24 @@
 <dd>1,618</dd>
 </div>
 <div>
-<dt>institutions in the broader comparison</dt>
-<dd>+520</dd>
+<dt>Random Forest test R² for completion (linear: 0.47)</dt>
+<dd>0.54</dd>
 </div>
 <div>
-<dt>of predictor variation captured by two PCA components</dt>
-<dd>70.3%</dd>
+<dt>R samples matched exactly in SQLite</dt>
+<dd>4 / 4</dd>
 </div>
 </dl>
 <section class="case-section" id="application">
 <h2>Why this work matters</h2>
 <div class="application-note">
 <span class="kicker">Business &amp; data analytics</span>
-<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite audit and Excel report show how to turn source data into repeatable QA checks and readable summaries. The same checks apply before a planning, pricing, or operations report is used.</p>
+<p>Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite check confirms each model sample before any result is read, and the model comparison uses held-out data instead of in-sample fit. The same habits apply before a planning, pricing, or demand forecast is used.</p>
 </div>
 </section>
 <section class="case-section" id="question" aria-labelledby="question-title">
 <h2 id="question-title">The question</h2>
-<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings?</p>
+<p>How do cost, financial aid, selectivity, enrollment, and institution type relate to college completion and earnings? And does Random Forest predict these outcomes better than linear models?</p>
 </section>
 <section class="case-section" id="data" aria-labelledby="data-title">
 <h2 id="data-title">Data and sample</h2>
@@ -111,10 +111,62 @@
 </section>
 <section class="case-section" id="contribution" aria-labelledby="contribution-title">
 <h2 id="contribution-title">My contribution</h2>
-<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Extended the project with a Python-to-SQLite audit and an Excel report for sample-count checks, institution-type summaries, and missingness review.</p>
+<p>Prepared institution-level College Scorecard data, assessed missingness, estimated completion and earnings regressions, compared samples with and without admission rate, applied 10-fold cross-validated Lasso, and performed standardized PCA. Compared Linear Regression, Lasso, and Random Forest on a shared train/test split and shared cross-validation folds. Built a Python-to-SQLite check that confirms each R sample contains the expected institutions.</p>
+</section>
+<section class="case-section" id="models" aria-labelledby="models-title">
+<h2 id="models-title">Model comparison</h2>
+<p>Linear Regression, Lasso, and Random Forest (1,000 trees) were fit on the same 80/20 train/test split and evaluated on the same 10 cross-validation folds (seed 4001). The completion model uses admission rate, cost, Pell Grant share, enrollment, and institution type. The earnings model uses completion rate, cost, Pell Grant share, median debt, and institution type.</p>
+<div class="table-scroll" tabindex="0" aria-label="Model comparison">
+<table class="evidence-table">
+<caption>Held-out performance · R² on the test set and averaged across 10 folds</caption>
+<thead>
+<tr>
+<th scope="col">Model</th>
+<th scope="col">Completion test R²</th>
+<th scope="col">Completion CV R²</th>
+<th scope="col">Earnings test R²</th>
+<th scope="col">Earnings CV R²</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Linear Regression</th>
+<td>0.4655</td>
+<td>0.4676</td>
+<td>0.4967</td>
+<td>0.4980</td>
+</tr>
+<tr>
+<th scope="row">Lasso</th>
+<td>0.4631</td>
+<td>0.4677</td>
+<td>0.4962</td>
+<td>0.4980</td>
+</tr>
+<tr>
+<th scope="row">Random Forest</th>
+<td>
+<strong>0.5418</strong>
+</td>
+<td>
+<strong>0.5298</strong>
+</td>
+<td>
+<strong>0.5985</strong>
+</td>
+<td>
+<strong>0.5919</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Random Forest had a higher R² than Linear Regression in 9 of 10 folds for completion and 10 of 10 folds for earnings, so the gain is not an artifact of one lucky split. Test sets held 324 and 390 institutions.</p>
+<h3>What drives each outcome</h3>
+<p>For completion, the regression and Random Forest ranked predictors in the same order: cost of attendance first, then Pell Grant share. For earnings, Random Forest ranked completion rate and median debt highest, while the two methods disagreed on cost. Cost is correlated with completion rate (r = 0.61) and median debt (r = 0.56), which likely explains why its rank shifts between methods.</p>
 </section>
 <section class="case-section" id="findings" aria-labelledby="findings-title">
-<h2 id="findings-title">Findings and evidence</h2>
+<h2 id="findings-title">Regression and PCA findings</h2>
 <p>Cost of attendance was positively associated with completion and earnings; Pell Grant participation was negatively associated with both, conditional on the other included predictors. Completion R² was 0.4834 and earnings R² was 0.5053, so each model accounted for roughly half of the variation in its outcome. These describe in-sample fit, not held-out prediction.</p>
 <figure class="spec-toggle" data-spec-toggle data-active="with">
 <div class="spec-head">
@@ -200,7 +252,7 @@
 </section>
 <section class="case-section" id="validation" aria-labelledby="validation-title">
 <h2 id="validation-title">SQL validation & sample checks</h2>
-<p>The extension audits 14 selected fields from 6,273 College Scorecard records. Python normalizes suppressed and non-numeric values, loads an in-memory SQLite database, and exports identifiers, sample-membership flags, missingness, and institution-type summaries.</p>
+<p>Before reading any model result, I check that each R sample contains the institutions I expect. Python treats suppressed and non-numeric values as missing (the same rule used in R), loads the selected College Scorecard fields into an in-memory SQLite database, and rebuilds each sample with SQL.</p>
 <div class="table-scroll" tabindex="0" aria-label="SQL sample-count comparison">
 <table class="evidence-table">
 <caption>Four analysis samples · SQL output and reported R counts</caption>
@@ -235,47 +287,11 @@
 </tbody>
 </table>
 </div>
-<p>The saved audit has 6,273 unique, non-missing UNITIDs. All four SQL counts agree with the reported R counts. The project log also records exact R-to-SQL UNITID-set matches for all four samples, with zero IDs unique to either source.</p>
-<h3>Repeatable checks</h3>
-<p>The audit derives QA totals from the data rather than hard-coding them. Two synthetic-data tests cover numeric conversion and basic sample selection. A separate comparison script validates identifiers and inclusion flags, writes a reconciliation CSV, and returns a failure if any R and SQL sample differs.</p>
-</section>
-<section class="case-section" id="report" aria-labelledby="report-title">
-<h2 id="report-title">Excel reporting</h2>
-<p>I used Python and openpyxl to generate a workbook from the SQL audit exports. The committed file contains four worksheets and eight comparison formulas.</p>
-<div class="table-scroll" tabindex="0" aria-label="Excel report structure">
-<table class="evidence-table">
-<caption>What is inside the Excel report</caption>
-<thead>
-<tr>
-<th scope="col">Worksheet</th>
-<th scope="col">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">Validation</th>
-<td>Four count differences and four IF-based MATCH/REVIEW checks, plus identifier QA totals.</td>
-</tr>
-<tr>
-<th scope="row">Definitions</th>
-<td>Variable definitions, missing-value rules, and fields required by each sample.</td>
-</tr>
-<tr>
-<th scope="row">Summary</th>
-<td>Institution-type counts, available-observation counts, and outcome means.</td>
-</tr>
-<tr>
-<th scope="row">Missingness</th>
-<td>Missing counts and percentages for the selected numeric fields and institution type.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>To refresh the report, rerun the SQL audit and regenerate the workbook.</p>
+<p>The 6,273 records have no duplicate UNITIDs. For all four samples, the set of UNITIDs exported from R is exactly the same as the set selected in SQL, not just the same count. The script writes the result to a CSV so the check can be rerun whenever the source file is refreshed.</p>
 </section>
 <section class="case-section" id="scope" aria-labelledby="scope-title">
 <h2 id="scope-title">Interpretation and next steps</h2>
-<p>These are institution-level associations, not causal effects or estimates for individual students. Missing data limit generalization, and R² values describe in-sample fit. Next, I plan to compare a Random Forest model on a common sample.</p>
+<p>These are institution-level associations, not causal effects or estimates for individual students. Expensive schools may simply enroll students who would do well anywhere. Only four-year institutions are covered, and missing data limit generalization. The poster will be presented on December 10, and the final report is due December 15.</p>
 <p class="case-note">The source repository remains private; selected methods and aggregate results are summarized here.</p>
 </section>
 <details class="case-section workflow-details" id="workflow">
@@ -290,18 +306,18 @@
 </li>
 <li>
 <strong>Audit in SQL</strong>
-<span>Use Python to load selected fields into SQLite, check identifiers, and export sample-membership flags and summaries.</span>
+<span>Use Python to load selected fields into SQLite, check identifiers, and compare each sample with the UNITIDs exported from R.</span>
 </li>
 <li>
-<strong>Report in Excel</strong>
-<span>Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, and summaries.</span>
+<strong>Compare models</strong>
+<span>Fit Linear Regression, Lasso, and Random Forest on the same 80/20 split and the same 10 folds, then compare test and cross-validated R².</span>
 </li>
 </ol>
 </details>
 <section class="case-section" id="materials">
 <h2>Materials</h2>
 <div class="material-links">
-<a class="btn" href="mailto:hamtaeyi0416@gmail.com?subject=Higher%20Education%20project%20details">Ask about the analysis and validation report ↗</a>
+<a class="btn" href="mailto:hamtaeyi0416@gmail.com?subject=Higher%20Education%20project%20details">Ask about the analysis and model comparison ↗</a>
 </div>
 </section>
 </article>
@@ -311,9 +327,9 @@
 <a href="#question">The question</a>
 <a href="#data">Data and sample</a>
 <a href="#contribution">My contribution</a>
-<a href="#findings">Findings and evidence</a>
+<a href="#models">Model comparison</a>
+<a href="#findings">Regression and PCA findings</a>
 <a href="#validation">SQL validation & sample checks</a>
-<a href="#report">Excel reporting</a>
 <a href="#scope">Interpretation and next steps</a>
 <a href="#workflow">Analysis workflow</a>
 <a href="#materials">Materials</a>
@@ -343,7 +359,7 @@
 </div>
 </footer>
 </div>
-<script src="../script.js?v=20261023-polish" defer>
+<script src="../script.js?v=20261113-capstone" defer>
 </script>
 </body>
 </html>
