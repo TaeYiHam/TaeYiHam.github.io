@@ -6,20 +6,20 @@ export const catalog = {
     date: 'Fall 2026',
     status: 'In progress',
     image: 'capstone-validation.svg',
-    description: 'Analyzing college outcomes in R, auditing sample selection in SQLite, and organizing validation results in Excel.',
-    proof: 'All 4 R analysis samples reproduced in SQL',
-    proofContext: '6,273 records audited · Excel report with comparison formulas',
-    relevance: 'Data validation · Statistical analysis · Reporting',
-    tools: 'R · SQL (SQLite) · Excel · Python',
+    description: 'Comparing Linear Regression, Lasso, and Random Forest on College Scorecard data, with every R sample checked against SQLite.',
+    proof: 'Random Forest test R² 0.54 vs 0.47 (completion)',
+    proofContext: '0.60 vs 0.50 for earnings · all 4 R samples matched in SQL',
+    relevance: 'Predictive modeling · Data validation · Statistical analysis',
+    tools: 'R · SQL (SQLite) · Python',
     featured: true,
     readingTime: '5 min read',
     application: 'Business & data analytics',
-    applicationText: 'Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite audit and Excel report show how to turn source data into repeatable QA checks and readable summaries. The same checks apply before a planning, pricing, or operations report is used.',
-    resources: [['See SQL validation', '#validation'], ['Inspect Excel reporting', '#report'], ['See model results', '#findings']],
+    applicationText: 'Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite check confirms each model sample before any result is read, and the model comparison uses held-out data instead of in-sample fit. The same habits apply before a planning, pricing, or demand forecast is used.',
+    resources: [['See model comparison', '#models'], ['See SQL validation', '#validation'], ['See regression findings', '#findings']],
     workflow: [
       ['Analyze in R', 'Clean selected fields and examine completion and earnings with regression, Lasso, and PCA.'],
-      ['Audit in SQL', 'Use Python to load selected fields into SQLite, check identifiers, and export sample-membership flags and summaries.'],
-      ['Report in Excel', 'Use Python and openpyxl to generate a four-sheet report with comparison formulas, QA totals, and summaries.']
+      ['Audit in SQL', 'Use Python to load selected fields into SQLite, check identifiers, and compare each sample with the UNITIDs exported from R.'],
+      ['Compare models', 'Fit Linear Regression, Lasso, and Random Forest on the same 80/20 split and the same 10 folds, then compare test and cross-validated R².']
     ]
   },
   'global-beauty-spending': {
