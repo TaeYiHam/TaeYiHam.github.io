@@ -13,8 +13,6 @@ export const catalog = {
     tools: 'R · SQL (SQLite) · Python',
     featured: true,
     readingTime: '5 min read',
-    application: 'Business & data analytics',
-    applicationText: 'Define inclusion rules, check identifiers and missing values, and make comparisons traceable before interpreting results. The Python-to-SQLite check confirms each model sample before any result is read, and the model comparison uses held-out data instead of in-sample fit. The same habits apply before a planning, pricing, or demand forecast is used.',
     resources: [['See model comparison', '#models'], ['See SQL validation', '#validation'], ['See regression findings', '#findings']],
     workflow: [
       ['Analyze in R', 'Clean selected fields and examine completion and earnings with regression, Lasso, and PCA.'],
@@ -35,8 +33,6 @@ export const catalog = {
     tools: 'R · R Shiny · ggplot2',
     featured: true,
     readingTime: '3 min + interactive preview',
-    application: 'Market research & pricing research',
-    applicationText: 'Compare both absolute spending and spending relative to income when framing market-research questions. These indicators help prioritize further investigation; they do not establish a profitable price or market-entry decision.',
     resources: [['Explore dashboard', '#explorer'], ['Inspect R code', 'https://github.com/TaeYiHam/Global-Beauty-Spending-Analysis/blob/main/app.R']],
     workflow: [
       ['Integrate', 'Combine socioeconomic indicators and secondary beauty-spending estimates.'],
@@ -57,8 +53,6 @@ export const catalog = {
     tools: 'Python · Neo4j · Cypher',
     featured: true,
     readingTime: '3 min read',
-    application: 'Data & operations analytics',
-    applicationText: 'Cleaning identifiers, splitting multi-value fields, and defining entity relationships are transferable to operational datasets. These methods help analysts avoid duplicated entities and inconsistent relationships in operational reporting.',
     resources: [['View original presentation', 'https://github.com/TaeYiHam/Spotify-Music-Graph-Analysis/blob/main/Spotify%20Music%20Graph%20Project.pdf'], ['Inspect Cypher queries', 'https://github.com/TaeYiHam/Spotify-Music-Graph-Analysis/blob/main/cypher/queries.cypher']],
     workflow: [
       ['Prepare', 'Handle duplicate track IDs and split records with multiple artists.'],
